@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "consumer-theory/index.html",
+    "href": "consumer-theory/index.html",
+    "title": "Consumer Theory",
+    "section": "",
+    "text": "This section develops standard consumer theory from utility maximisation, with full derivations of demand functions and comparative statics."
+  },
+  {
+    "objectID": "consumer-theory/index.html#topics",
+    "href": "consumer-theory/index.html#topics",
+    "title": "Consumer Theory",
+    "section": "Topics",
+    "text": "Topics\n\nPerfect Substitutes (coming soon)\nCobb–Douglas (coming soon)\nPerfect Complements (coming soon)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Econ Notes",
+    "section": "",
+    "text": "A companion site to the Econschool videos — full derivations, exercises, and reproducible figures for microeconomics."
+  },
+  {
+    "objectID": "index.html#modules",
+    "href": "index.html#modules",
+    "title": "Econ Notes",
+    "section": "Modules",
+    "text": "Modules\n\nConsumer Theory"
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Econ Notes",
+    "section": "About",
+    "text": "About\nThese notes are written for students preparing for postgraduate study in economics. The emphasis is on full mathematical working — no skipped algebra, no hand-waved geometry. Figures are generated from code so they can be reproduced and adapted.\nAuthor: Amit Goyal · amit@econschool.in"
+  }
+]

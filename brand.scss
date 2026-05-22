@@ -1,0 +1,44 @@
+/*-- scss:defaults --*/
+
+// Econschool brand palette
+$es-violet:      #5A1BA6;
+$es-terracotta:  #A03A2C;
+$es-sage:        #B8C5B5;
+$es-cream:       #FCFAF6;   // softened from #FAF7F2 — less yellow
+$es-ink:         #1F1F1F;
+$es-muted:       #555555;
+
+// Page basics
+$body-bg:        $es-cream;
+$body-color:     $es-ink;
+
+// Links — ink color at rest, terracotta on hover only
+$link-color:                $es-ink;
+$link-decoration:           none;
+$link-hover-color:          $es-terracotta;
+$link-hover-decoration:     underline;
+
+// Headings — violet, family comes from styles.css
+$headings-color: $es-violet;
+
+// Fonts — body face is the workhorse; Playfair reserved for H1
+$font-family-sans-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+$font-family-serif:      "Source Serif 4", Georgia, "Times New Roman", serif;
+
+// Navbar
+$navbar-bg:                $es-cream;
+$navbar-light-color:       $es-muted;
+$navbar-light-hover-color: $es-terracotta;
+$navbar-light-active-color: $es-ink;
+
+// Footer
+$footer-bg:                $es-cream;
+$footer-fg:                $es-muted;
+
+// Code blocks
+$code-bg:                  #F2EEE7;
+$code-color:               $es-ink;
+
+// Horizontal rules — sage, but used sparingly (see styles.css for placement)
+$hr-color:                 $es-sage;
+$hr-border-width:          1px;

@@ -56,6 +56,62 @@
     "text": "References\n\nMas-Colell, Whinston, Green. Microeconomic Theory, Section 3.D.\nVarian. Microeconomic Analysis, Chapter 7."
   },
   {
+    "objectID": "consumer-theory/cobb-douglas.html",
+    "href": "consumer-theory/cobb-douglas.html",
+    "title": "Cobb-Douglas",
+    "section": "",
+    "text": "A consumer chooses a bundle \\((x_1, x_2) \\in \\mathbb{R}^2_{++}\\) of two goods to maximise utility subject to a budget constraint. Cobb-Douglas preferences are the workhorse interior-solution case: smooth indifference curves, a unique tangency, and demands that are linear in income and unit-elastic in own price. The defining oddity — and the pedagogical payoff of this module — is that the expenditure share on each good is constant across all prices and incomes. This module derives Marshallian demand, traces the comparative statics, and works through one numerical example."
+  },
+  {
+    "objectID": "consumer-theory/cobb-douglas.html#the-model",
+    "href": "consumer-theory/cobb-douglas.html#the-model",
+    "title": "Cobb-Douglas",
+    "section": "The model",
+    "text": "The model\n\n\n\n\n\n\nNoteDefinition: Cobb-Douglas utility\n\n\n\nGoods \\(1\\) and \\(2\\) have Cobb-Douglas preferences if they are represented by \\[\nu(x_1, x_2) = x_1^{\\alpha} \\, x_2^{1 - \\alpha}, \\qquad \\alpha \\in (0, 1).\n\\] The marginal rate of substitution is \\(\\mathrm{MRS} = \\dfrac{\\alpha}{1 - \\alpha} \\cdot \\dfrac{x_2}{x_1}\\), decreasing in \\(x_1\\) along any indifference curve.\n\n\nThe consumer’s problem is \\[\n\\max_{x_1, x_2 &gt; 0} \\; x_1^{\\alpha} x_2^{1 - \\alpha} \\quad \\text{s.t.} \\quad p_1 x_1 + p_2 x_2 \\le m,\n\\tag{1}\\] with \\(p_1, p_2 &gt; 0\\) and \\(m &gt; 0\\).\nUnlike the perfect-substitutes case, the objective is strictly quasi-concave and the indifference curves are strictly convex, so the solution is unique and interior (no corner solutions, no demand correspondences). The Lagrangian works cleanly here."
+  },
+  {
+    "objectID": "consumer-theory/cobb-douglas.html#solving-the-problem",
+    "href": "consumer-theory/cobb-douglas.html#solving-the-problem",
+    "title": "Cobb-Douglas",
+    "section": "Solving the problem",
+    "text": "Solving the problem\nAt an interior optimum, the indifference curve is tangent to the budget line: the marginal rate of substitution equals the price ratio, and the budget binds. These two conditions pin down a unique \\((x_1^*, x_2^*)\\).\n\n\n\n\n\n\nImportantProposition: Marshallian demand\n\n\n\nThe Marshallian demands for the Cobb-Douglas problem are \\[\nx_1^*(p_1, p_2, m) = \\frac{\\alpha \\, m}{p_1}, \\qquad\nx_2^*(p_1, p_2, m) = \\frac{(1 - \\alpha) \\, m}{p_2}.\n\\tag{2}\\] The corresponding indirect utility is \\[\nv(p_1, p_2, m) = \\alpha^{\\alpha} (1 - \\alpha)^{1 - \\alpha} \\cdot \\frac{m}{p_1^{\\alpha} \\, p_2^{1 - \\alpha}}.\n\\tag{3}\\]\n\n\n\n\n\n\n\n\nTipProof sketch\n\n\n\n\n\nThe Lagrangian is \\[\n\\mathcal{L}(x_1, x_2, \\lambda) = x_1^{\\alpha} x_2^{1 - \\alpha} - \\lambda \\, (p_1 x_1 + p_2 x_2 - m).\n\\] The first-order conditions are \\[\n\\alpha \\, x_1^{\\alpha - 1} x_2^{1 - \\alpha} = \\lambda \\, p_1, \\qquad\n(1 - \\alpha) \\, x_1^{\\alpha} x_2^{-\\alpha} = \\lambda \\, p_2.\n\\] Dividing the first by the second eliminates \\(\\lambda\\) and gives the tangency condition \\[\n\\frac{\\alpha}{1 - \\alpha} \\cdot \\frac{x_2}{x_1} = \\frac{p_1}{p_2}\n\\quad \\Longleftrightarrow \\quad\np_2 x_2 = \\frac{1 - \\alpha}{\\alpha} \\, p_1 x_1.\n\\] Substituting into the budget constraint \\(p_1 x_1 + p_2 x_2 = m\\) yields \\(p_1 x_1 = \\alpha m\\), hence \\(x_1^* = \\alpha m / p_1\\). Symmetrically \\(x_2^* = (1 - \\alpha) m / p_2\\). Plugging back into \\(u\\) gives the indirect utility Equation 3.\n\n\n\nA direct corollary, sometimes more useful than the demand itself:\n\\[\np_1 x_1^* = \\alpha m, \\qquad p_2 x_2^* = (1 - \\alpha) m.\n\\tag{4}\\]\nThe consumer spends a fixed fraction \\(\\alpha\\) of income on good 1 and \\(1 - \\alpha\\) on good 2, regardless of prices."
+  },
+  {
+    "objectID": "consumer-theory/cobb-douglas.html#comparative-statics",
+    "href": "consumer-theory/cobb-douglas.html#comparative-statics",
+    "title": "Cobb-Douglas",
+    "section": "Comparative statics",
+    "text": "Comparative statics\nEquation Equation 2 makes the comparative statics immediate. Take logs: \\[\n\\log x_1^* = \\log \\alpha + \\log m - \\log p_1.\n\\]\nOwn-price elasticity. \\(\\dfrac{\\partial \\log x_1^*}{\\partial \\log p_1} = -1\\). Cobb-Douglas demand is unit-elastic in own price: a \\(1\\%\\) increase in \\(p_1\\) lowers \\(x_1^*\\) by exactly \\(1\\%\\).\nCross-price elasticity. \\(\\dfrac{\\partial \\log x_1^*}{\\partial \\log p_2} = 0\\). The demand for good 1 does not respond to the price of good 2 at all. Goods are neither substitutes nor complements in the Marshallian sense — they are independent in demand.\nIncome elasticity. \\(\\dfrac{\\partial \\log x_1^*}{\\partial \\log m} = 1\\). Both goods are normal and the Engel curve is a ray through the origin; doubling income exactly doubles demand for each good.\nExpenditure shares. From Equation 4, the share of income spent on good 1 is \\[\ns_1 = \\frac{p_1 x_1^*}{m} = \\alpha,\n\\] independent of \\((p_1, p_2, m)\\). This is the right-panel picture in Section 5.\n\n\n\n\n\n\nWarningA knife-edge property\n\n\n\nThe constancy of expenditure shares is a special feature of Cobb-Douglas, not a general property of well-behaved preferences. The CES family with elasticity of substitution \\(\\sigma \\ne 1\\) produces shares that vary with the price ratio (rising in \\(p_1\\) if \\(\\sigma &lt; 1\\), falling if \\(\\sigma &gt; 1\\)). Cobb-Douglas is the \\(\\sigma = 1\\) knife-edge. Students who internalise “shares are constant” as a general rule will get the wrong answer the first time they see CES."
+  },
+  {
+    "objectID": "consumer-theory/cobb-douglas.html#worked-example",
+    "href": "consumer-theory/cobb-douglas.html#worked-example",
+    "title": "Cobb-Douglas",
+    "section": "Worked example",
+    "text": "Worked example\nTake \\(\\alpha = 0.4\\), \\(p_1 = 2\\), \\(p_2 = 3\\), \\(m = 60\\).\nMarshallian demand: \\[\nx_1^* = \\frac{0.4 \\times 60}{2} = 12, \\qquad\nx_2^* = \\frac{0.6 \\times 60}{3} = 12.\n\\]\nExpenditure on each good: \\[\np_1 x_1^* = 24 = 0.4 \\times 60, \\qquad p_2 x_2^* = 36 = 0.6 \\times 60.\n\\]\nIndirect utility: \\[v = 0.4^{0.4} \\cdot 0.6^{0.6} \\cdot \\frac{60}{2^{0.4} \\, 3^{0.6}} \\approx 0.5101 \\cdot \\frac{60}{2.5510} \\approx 12.00.\\]\nNow raise \\(p_1\\) from \\(2\\) to \\(4\\), holding everything else fixed: \\[\nx_1^* = \\frac{0.4 \\times 60}{4} = 6, \\qquad x_2^* = 12 \\text{ (unchanged)}.\n\\]\nGood 1’s quantity halved (own-price elasticity \\(-1\\)), good 2’s quantity didn’t move (cross-price elasticity \\(0\\)). Expenditure shares are still \\((0.4, 0.6)\\).\nThe geometry of the indifference map plus budget line, and the expenditure-share picture as \\(p_1\\) varies, is in Section 5."
+  },
+  {
+    "objectID": "consumer-theory/cobb-douglas.html#sec-figure",
+    "href": "consumer-theory/cobb-douglas.html#sec-figure",
+    "title": "Cobb-Douglas",
+    "section": "Figure",
+    "text": "Figure\n\n\n\n\n\n\n\n\nFigure 1: Cobb-Douglas demand. Left: indifference map (three utility levels) with budget line and optimum at \\(\\alpha = 0.4\\), \\(p_1 = 2\\), \\(p_2 = 3\\), \\(m = 60\\). Right: expenditure shares as \\(p_1\\) varies, holding \\((p_2, m) = (3, 60)\\) fixed. The shares are constant at \\((\\alpha, 1 - \\alpha) = (0.4, 0.6)\\), independent of \\(p_1\\) — the defining feature of Cobb-Douglas."
+  },
+  {
+    "objectID": "consumer-theory/cobb-douglas.html#exercises",
+    "href": "consumer-theory/cobb-douglas.html#exercises",
+    "title": "Cobb-Douglas",
+    "section": "Exercises",
+    "text": "Exercises\n\n\n\n\n\n\nNoteExercise 1\n\n\n\nLet \\(\\alpha = 1/3\\), \\(p_1 = 4\\), \\(p_2 = 2\\), \\(m = 120\\). Compute the Marshallian demand \\((x_1^*, x_2^*)\\) and the indirect utility \\(v(p_1, p_2, m)\\). Verify that the expenditure shares are \\(1/3\\) and \\(2/3\\).\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nBy Equation 2, \\[\nx_1^* = \\frac{\\alpha m}{p_1} = \\frac{(1/3) \\cdot 120}{4} = 10, \\qquad\nx_2^* = \\frac{(1 - \\alpha) m}{p_2} = \\frac{(2/3) \\cdot 120}{2} = 40.\n\\] Expenditure: \\(p_1 x_1^* = 40 = (1/3) \\cdot 120\\) and \\(p_2 x_2^* = 80 = (2/3) \\cdot 120\\), so shares are \\(1/3\\) and \\(2/3\\) as predicted by Equation 4.\nBy Equation 3, \\[\nv = (1/3)^{1/3} (2/3)^{2/3} \\cdot \\frac{120}{4^{1/3} \\cdot 2^{2/3}}\n  = (1/3)^{1/3} (2/3)^{2/3} \\cdot \\frac{120}{(4 \\cdot 4)^{1/3} \\cdot 2^{0}}\n\\] which simplifies to \\(v \\approx 0.5291 \\cdot 47.622 \\approx 25.20\\).\n\n\n\n\n\n\n\n\n\nNoteExercise 2\n\n\n\nProve that the expenditure share on good 1 is \\(\\alpha\\) for all \\((p_1, p_2, m) \\in \\mathbb{R}^3_{++}\\). Then show that this property fails for quasi-linear preferences \\(u(x_1, x_2) = \\log x_1 + x_2\\): derive the demand for good 1 and the expenditure share, and explain why the share moves with \\((p_1, m)\\).\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nCobb-Douglas. From Equation 2, \\(p_1 x_1^* = p_1 \\cdot \\alpha m / p_1 = \\alpha m\\), so \\(s_1 = p_1 x_1^* / m = \\alpha\\). No dependence on \\((p_1, p_2, m)\\).\nQuasi-linear. With \\(u = \\log x_1 + x_2\\), the tangency condition is \\(1 / x_1 = p_1 / p_2\\), giving \\(x_1^* = p_2 / p_1\\) as long as \\(m \\ge p_2\\) (so \\(x_2^* \\ge 0\\)). Expenditure on good 1 is \\(p_1 x_1^* = p_2\\), a constant in currency, not a share. The share is \\[\ns_1 = \\frac{p_2}{m},\n\\] which falls as income rises (good 1 is a necessity in the quasi-linear sense) and rises with \\(p_2\\). Constant share is special to CD; constant expenditure is the analogous property of quasi-linear preferences. Different invariants for different utility families — easy to conflate.\n\n\n\n\n\n\n\n\n\nNoteExercise 3\n\n\n\nDerive the Hicksian (compensated) demand \\(h_1(p_1, p_2, \\bar u)\\) for good 1 by solving the expenditure-minimisation dual. Then state the Slutsky decomposition \\[\n\\frac{\\partial x_1^*}{\\partial p_1} = \\frac{\\partial h_1}{\\partial p_1} - x_1^* \\cdot \\frac{\\partial x_1^*}{\\partial m}\n\\] and verify it numerically at the baseline \\((\\alpha, p_1, p_2, m) = (0.4, 2, 3, 60)\\).\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nHicksian demand. Solve \\[\n\\min_{x_1, x_2 &gt; 0} \\; p_1 x_1 + p_2 x_2 \\quad \\text{s.t.} \\quad x_1^{\\alpha} x_2^{1 - \\alpha} \\ge \\bar u.\n\\] The tangency condition is the same as in the primal, so the cost-minimising bundle satisfies \\(p_2 x_2 / (p_1 x_1) = (1 - \\alpha) / \\alpha\\), i.e., \\(x_2 = \\frac{(1 - \\alpha) p_1}{\\alpha \\, p_2} \\cdot x_1\\). Substituting into the constraint \\(x_1^{\\alpha} x_2^{1 - \\alpha} = \\bar u\\) and solving: \\[\nh_1(p_1, p_2, \\bar u) = \\bar u \\cdot \\left( \\frac{\\alpha}{1 - \\alpha} \\cdot \\frac{p_2}{p_1} \\right)^{1 - \\alpha}.\n\\]\nSlutsky terms. From Equation 2, \\(\\partial x_1^* / \\partial p_1 = -\\alpha m / p_1^2\\) and \\(\\partial x_1^* / \\partial m = \\alpha / p_1\\). For the substitution effect, differentiate \\(h_1\\): \\[\n\\frac{\\partial h_1}{\\partial p_1} = -(1 - \\alpha) \\cdot \\frac{h_1}{p_1}.\n\\] Evaluated at the Marshallian bundle where \\(h_1 = x_1^*\\) (the duality identity), this gives \\(\\partial h_1 / \\partial p_1 = -(1 - \\alpha) \\alpha m / p_1^2\\).\nVerification at baseline. Here \\(\\alpha = 0.4\\), \\(p_1 = 2\\), \\(p_2 = 3\\), \\(m = 60\\), \\(x_1^* = 12\\).\n\nTotal effect: \\(-\\alpha m / p_1^2 = -0.4 \\cdot 60 / 4 = -6.0\\).\nSubstitution: \\(-(1 - \\alpha) \\alpha m / p_1^2 = -0.6 \\cdot 0.4 \\cdot 60 / 4 = -3.6\\).\nIncome: \\(- x_1^* \\cdot \\alpha / p_1 = -12 \\cdot 0.4 / 2 = -2.4\\).\n\nSum of substitution and income effects: \\(-3.6 + (-2.4) = -6.0\\), matching the total effect. The Slutsky decomposition holds.\nFor Cobb-Douglas, the substitution effect is always \\((1 - \\alpha)\\) of the total and the income effect is \\(\\alpha\\) of the total — a clean closed-form decomposition that almost no other utility function delivers."
+  },
+  {
+    "objectID": "consumer-theory/cobb-douglas.html#references",
+    "href": "consumer-theory/cobb-douglas.html#references",
+    "title": "Cobb-Douglas",
+    "section": "References",
+    "text": "References\n\nMas-Colell, Whinston, Green. Microeconomic Theory, Section 3.D.\nVarian. Microeconomic Analysis, Chapter 7.\nJehle and Reny. Advanced Microeconomic Theory, Section 1.4 (Cobb-Douglas as a worked example throughout)."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Econ Notes",
@@ -88,6 +144,6 @@
     "href": "consumer-theory/index.html#topics",
     "title": "Consumer Theory",
     "section": "Topics",
-    "text": "Topics\n\nPerfect Substitutes\nCobb–Douglas (coming soon)\nPerfect Complements (coming soon)"
+    "text": "Topics\n\nPerfect Substitutes\nCobb–Douglas\nPerfect Complements (coming soon)"
   }
 ]

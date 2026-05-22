@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Cobb-Douglas – Econ Notes</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-644edf66fb51301e821e522aa0bec14b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Source+Serif+4:wght@400;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Econ Notes</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../consumer-theory/index.html"> 
+<span class="menu-text">Consumer Theory</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-model" id="toc-the-model" class="nav-link active" data-scroll-target="#the-model">The model</a></li>
+  <li><a href="#solving-the-problem" id="toc-solving-the-problem" class="nav-link" data-scroll-target="#solving-the-problem">Solving the problem</a></li>
+  <li><a href="#comparative-statics" id="toc-comparative-statics" class="nav-link" data-scroll-target="#comparative-statics">Comparative statics</a></li>
+  <li><a href="#worked-example" id="toc-worked-example" class="nav-link" data-scroll-target="#worked-example">Worked example</a></li>
+  <li><a href="#sec-figure" id="toc-sec-figure" class="nav-link" data-scroll-target="#sec-figure">Figure</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Cobb-Douglas</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>A consumer chooses a bundle <span class="math inline">\((x_1, x_2) \in \mathbb{R}^2_{++}\)</span> of two goods to maximise utility subject to a budget constraint. <strong>Cobb-Douglas preferences</strong> are the workhorse interior-solution case: smooth indifference curves, a unique tangency, and demands that are linear in income and unit-elastic in own price. The defining oddity — and the pedagogical payoff of this module — is that the <em>expenditure share</em> on each good is constant across all prices and incomes. This module derives Marshallian demand, traces the comparative statics, and works through one numerical example.</p>
+<section id="the-model" class="level2">
+<h2 class="anchored" data-anchor-id="the-model">The model</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition: Cobb-Douglas utility">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: Cobb-Douglas utility
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Goods <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> have <strong>Cobb-Douglas preferences</strong> if they are represented by <span class="math display">\[
+u(x_1, x_2) = x_1^{\alpha} \, x_2^{1 - \alpha}, \qquad \alpha \in (0, 1).
+\]</span> The marginal rate of substitution is <span class="math inline">\(\mathrm{MRS} = \dfrac{\alpha}{1 - \alpha} \cdot \dfrac{x_2}{x_1}\)</span>, decreasing in <span class="math inline">\(x_1\)</span> along any indifference curve.</p>
+</div>
+</div>
+<p>The consumer’s problem is <span id="eq-problem"><span class="math display">\[
+\max_{x_1, x_2 &gt; 0} \; x_1^{\alpha} x_2^{1 - \alpha} \quad \text{s.t.} \quad p_1 x_1 + p_2 x_2 \le m,
+\tag{1}\]</span></span> with <span class="math inline">\(p_1, p_2 &gt; 0\)</span> and <span class="math inline">\(m &gt; 0\)</span>.</p>
+<p>Unlike the perfect-substitutes case, the objective is strictly quasi-concave and the indifference curves are strictly convex, so the solution is unique and interior (no corner solutions, no demand correspondences). The Lagrangian works cleanly here.</p>
+</section>
+<section id="solving-the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="solving-the-problem">Solving the problem</h2>
+<p>At an interior optimum, the indifference curve is tangent to the budget line: the marginal rate of substitution equals the price ratio, and the budget binds. These two conditions pin down a unique <span class="math inline">\((x_1^*, x_2^*)\)</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition: Marshallian demand">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Proposition: Marshallian demand
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Marshallian demands for the Cobb-Douglas problem are <span id="eq-demand"><span class="math display">\[
+x_1^*(p_1, p_2, m) = \frac{\alpha \, m}{p_1}, \qquad
+x_2^*(p_1, p_2, m) = \frac{(1 - \alpha) \, m}{p_2}.
+\tag{2}\]</span></span> The corresponding indirect utility is <span id="eq-indirect"><span class="math display">\[
+v(p_1, p_2, m) = \alpha^{\alpha} (1 - \alpha)^{1 - \alpha} \cdot \frac{m}{p_1^{\alpha} \, p_2^{1 - \alpha}}.
+\tag{3}\]</span></span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Proof sketch">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Proof sketch
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The Lagrangian is <span class="math display">\[
+\mathcal{L}(x_1, x_2, \lambda) = x_1^{\alpha} x_2^{1 - \alpha} - \lambda \, (p_1 x_1 + p_2 x_2 - m).
+\]</span> The first-order conditions are <span class="math display">\[
+\alpha \, x_1^{\alpha - 1} x_2^{1 - \alpha} = \lambda \, p_1, \qquad
+(1 - \alpha) \, x_1^{\alpha} x_2^{-\alpha} = \lambda \, p_2.
+\]</span> Dividing the first by the second eliminates <span class="math inline">\(\lambda\)</span> and gives the tangency condition <span class="math display">\[
+\frac{\alpha}{1 - \alpha} \cdot \frac{x_2}{x_1} = \frac{p_1}{p_2}
+\quad \Longleftrightarrow \quad
+p_2 x_2 = \frac{1 - \alpha}{\alpha} \, p_1 x_1.
+\]</span> Substituting into the budget constraint <span class="math inline">\(p_1 x_1 + p_2 x_2 = m\)</span> yields <span class="math inline">\(p_1 x_1 = \alpha m\)</span>, hence <span class="math inline">\(x_1^* = \alpha m / p_1\)</span>. Symmetrically <span class="math inline">\(x_2^* = (1 - \alpha) m / p_2\)</span>. Plugging back into <span class="math inline">\(u\)</span> gives the indirect utility <a href="#eq-indirect" class="quarto-xref">Equation&nbsp;3</a>.</p>
+</div>
+</div>
+</div>
+<p>A direct corollary, sometimes more useful than the demand itself:</p>
+<p><span id="eq-shares"><span class="math display">\[
+p_1 x_1^* = \alpha m, \qquad p_2 x_2^* = (1 - \alpha) m.
+\tag{4}\]</span></span></p>
+<p>The consumer spends a <em>fixed</em> fraction <span class="math inline">\(\alpha\)</span> of income on good 1 and <span class="math inline">\(1 - \alpha\)</span> on good 2, regardless of prices.</p>
+</section>
+<section id="comparative-statics" class="level2">
+<h2 class="anchored" data-anchor-id="comparative-statics">Comparative statics</h2>
+<p>Equation <a href="#eq-demand" class="quarto-xref">Equation&nbsp;2</a> makes the comparative statics immediate. Take logs: <span class="math display">\[
+\log x_1^* = \log \alpha + \log m - \log p_1.
+\]</span></p>
+<p><strong>Own-price elasticity.</strong> <span class="math inline">\(\dfrac{\partial \log x_1^*}{\partial \log p_1} = -1\)</span>. Cobb-Douglas demand is unit-elastic in own price: a <span class="math inline">\(1\%\)</span> increase in <span class="math inline">\(p_1\)</span> lowers <span class="math inline">\(x_1^*\)</span> by exactly <span class="math inline">\(1\%\)</span>.</p>
+<p><strong>Cross-price elasticity.</strong> <span class="math inline">\(\dfrac{\partial \log x_1^*}{\partial \log p_2} = 0\)</span>. The demand for good 1 does not respond to the price of good 2 at all. Goods are neither substitutes nor complements in the Marshallian sense — they are <em>independent</em> in demand.</p>
+<p><strong>Income elasticity.</strong> <span class="math inline">\(\dfrac{\partial \log x_1^*}{\partial \log m} = 1\)</span>. Both goods are normal and the Engel curve is a ray through the origin; doubling income exactly doubles demand for each good.</p>
+<p><strong>Expenditure shares.</strong> From <a href="#eq-shares" class="quarto-xref">Equation&nbsp;4</a>, the share of income spent on good 1 is <span class="math display">\[
+s_1 = \frac{p_1 x_1^*}{m} = \alpha,
+\]</span> independent of <span class="math inline">\((p_1, p_2, m)\)</span>. This is the right-panel picture in <a href="#sec-figure" class="quarto-xref">Section&nbsp;5</a>.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="A knife-edge property">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>A knife-edge property
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The constancy of expenditure shares is a <em>special</em> feature of Cobb-Douglas, not a general property of well-behaved preferences. The CES family with elasticity of substitution <span class="math inline">\(\sigma \ne 1\)</span> produces shares that vary with the price ratio (rising in <span class="math inline">\(p_1\)</span> if <span class="math inline">\(\sigma &lt; 1\)</span>, falling if <span class="math inline">\(\sigma &gt; 1\)</span>). Cobb-Douglas is the <span class="math inline">\(\sigma = 1\)</span> knife-edge. Students who internalise “shares are constant” as a general rule will get the wrong answer the first time they see CES.</p>
+</div>
+</div>
+</section>
+<section id="worked-example" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example">Worked example</h2>
+<p>Take <span class="math inline">\(\alpha = 0.4\)</span>, <span class="math inline">\(p_1 = 2\)</span>, <span class="math inline">\(p_2 = 3\)</span>, <span class="math inline">\(m = 60\)</span>.</p>
+<p>Marshallian demand: <span class="math display">\[
+x_1^* = \frac{0.4 \times 60}{2} = 12, \qquad
+x_2^* = \frac{0.6 \times 60}{3} = 12.
+\]</span></p>
+<p>Expenditure on each good: <span class="math display">\[
+p_1 x_1^* = 24 = 0.4 \times 60, \qquad p_2 x_2^* = 36 = 0.6 \times 60.
+\]</span></p>
+<p>Indirect utility: <span class="math display">\[v = 0.4^{0.4} \cdot 0.6^{0.6} \cdot \frac{60}{2^{0.4} \, 3^{0.6}} \approx 0.5101 \cdot \frac{60}{2.5510} \approx 12.00.\]</span></p>
+<p>Now raise <span class="math inline">\(p_1\)</span> from <span class="math inline">\(2\)</span> to <span class="math inline">\(4\)</span>, holding everything else fixed: <span class="math display">\[
+x_1^* = \frac{0.4 \times 60}{4} = 6, \qquad x_2^* = 12 \text{ (unchanged)}.
+\]</span></p>
+<p>Good 1’s quantity halved (own-price elasticity <span class="math inline">\(-1\)</span>), good 2’s quantity didn’t move (cross-price elasticity <span class="math inline">\(0\)</span>). Expenditure shares are still <span class="math inline">\((0.4, 0.6)\)</span>.</p>
+<p>The geometry of the indifference map plus budget line, and the expenditure-share picture as <span class="math inline">\(p_1\)</span> varies, is in <a href="#sec-figure" class="quarto-xref">Section&nbsp;5</a>.</p>
+</section>
+<section id="sec-figure" class="level2">
+<h2 class="anchored" data-anchor-id="sec-figure">Figure</h2>
+<div id="cell-fig-cd-demand" class="cell" data-fig-height="4" data-fig-width="10" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div id="fig-cd-demand" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cd-demand-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="cobb-douglas_files/figure-html/fig-cd-demand-output-1.png" width="902" height="372" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cd-demand-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Cobb-Douglas demand. Left: indifference map (three utility levels) with budget line and optimum at <span class="math inline">\(\alpha = 0.4\)</span>, <span class="math inline">\(p_1 = 2\)</span>, <span class="math inline">\(p_2 = 3\)</span>, <span class="math inline">\(m = 60\)</span>. Right: expenditure shares as <span class="math inline">\(p_1\)</span> varies, holding <span class="math inline">\((p_2, m) = (3, 60)\)</span> fixed. The shares are constant at <span class="math inline">\((\alpha, 1 - \alpha) = (0.4, 0.6)\)</span>, independent of <span class="math inline">\(p_1\)</span> — the defining feature of Cobb-Douglas.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<div class="callout callout-style-simple callout-note callout-titled" title="Exercise 1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(\alpha = 1/3\)</span>, <span class="math inline">\(p_1 = 4\)</span>, <span class="math inline">\(p_2 = 2\)</span>, <span class="math inline">\(m = 120\)</span>. Compute the Marshallian demand <span class="math inline">\((x_1^*, x_2^*)\)</span> and the indirect utility <span class="math inline">\(v(p_1, p_2, m)\)</span>. Verify that the expenditure shares are <span class="math inline">\(1/3\)</span> and <span class="math inline">\(2/3\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>By <a href="#eq-demand" class="quarto-xref">Equation&nbsp;2</a>, <span class="math display">\[
+x_1^* = \frac{\alpha m}{p_1} = \frac{(1/3) \cdot 120}{4} = 10, \qquad
+x_2^* = \frac{(1 - \alpha) m}{p_2} = \frac{(2/3) \cdot 120}{2} = 40.
+\]</span> Expenditure: <span class="math inline">\(p_1 x_1^* = 40 = (1/3) \cdot 120\)</span> and <span class="math inline">\(p_2 x_2^* = 80 = (2/3) \cdot 120\)</span>, so shares are <span class="math inline">\(1/3\)</span> and <span class="math inline">\(2/3\)</span> as predicted by <a href="#eq-shares" class="quarto-xref">Equation&nbsp;4</a>.</p>
+<p>By <a href="#eq-indirect" class="quarto-xref">Equation&nbsp;3</a>, <span class="math display">\[
+v = (1/3)^{1/3} (2/3)^{2/3} \cdot \frac{120}{4^{1/3} \cdot 2^{2/3}}
+  = (1/3)^{1/3} (2/3)^{2/3} \cdot \frac{120}{(4 \cdot 4)^{1/3} \cdot 2^{0}}
+\]</span> which simplifies to <span class="math inline">\(v \approx 0.5291 \cdot 47.622 \approx 25.20\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled" title="Exercise 2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prove that the expenditure share on good 1 is <span class="math inline">\(\alpha\)</span> for <em>all</em> <span class="math inline">\((p_1, p_2, m) \in \mathbb{R}^3_{++}\)</span>. Then show that this property fails for quasi-linear preferences <span class="math inline">\(u(x_1, x_2) = \log x_1 + x_2\)</span>: derive the demand for good 1 and the expenditure share, and explain why the share moves with <span class="math inline">\((p_1, m)\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Cobb-Douglas.</strong> From <a href="#eq-demand" class="quarto-xref">Equation&nbsp;2</a>, <span class="math inline">\(p_1 x_1^* = p_1 \cdot \alpha m / p_1 = \alpha m\)</span>, so <span class="math inline">\(s_1 = p_1 x_1^* / m = \alpha\)</span>. No dependence on <span class="math inline">\((p_1, p_2, m)\)</span>.</p>
+<p><strong>Quasi-linear.</strong> With <span class="math inline">\(u = \log x_1 + x_2\)</span>, the tangency condition is <span class="math inline">\(1 / x_1 = p_1 / p_2\)</span>, giving <span class="math inline">\(x_1^* = p_2 / p_1\)</span> as long as <span class="math inline">\(m \ge p_2\)</span> (so <span class="math inline">\(x_2^* \ge 0\)</span>). Expenditure on good 1 is <span class="math inline">\(p_1 x_1^* = p_2\)</span>, a constant in <em>currency</em>, not a share. The share is <span class="math display">\[
+s_1 = \frac{p_2}{m},
+\]</span> which falls as income rises (good 1 is a necessity in the quasi-linear sense) and rises with <span class="math inline">\(p_2\)</span>. Constant <em>share</em> is special to CD; constant <em>expenditure</em> is the analogous property of quasi-linear preferences. Different invariants for different utility families — easy to conflate.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled" title="Exercise 3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Derive the Hicksian (compensated) demand <span class="math inline">\(h_1(p_1, p_2, \bar u)\)</span> for good 1 by solving the expenditure-minimisation dual. Then state the Slutsky decomposition <span class="math display">\[
+\frac{\partial x_1^*}{\partial p_1} = \frac{\partial h_1}{\partial p_1} - x_1^* \cdot \frac{\partial x_1^*}{\partial m}
+\]</span> and verify it numerically at the baseline <span class="math inline">\((\alpha, p_1, p_2, m) = (0.4, 2, 3, 60)\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Hicksian demand.</strong> Solve <span class="math display">\[
+\min_{x_1, x_2 &gt; 0} \; p_1 x_1 + p_2 x_2 \quad \text{s.t.} \quad x_1^{\alpha} x_2^{1 - \alpha} \ge \bar u.
+\]</span> The tangency condition is the same as in the primal, so the cost-minimising bundle satisfies <span class="math inline">\(p_2 x_2 / (p_1 x_1) = (1 - \alpha) / \alpha\)</span>, i.e., <span class="math inline">\(x_2 = \frac{(1 - \alpha) p_1}{\alpha \, p_2} \cdot x_1\)</span>. Substituting into the constraint <span class="math inline">\(x_1^{\alpha} x_2^{1 - \alpha} = \bar u\)</span> and solving: <span class="math display">\[
+h_1(p_1, p_2, \bar u) = \bar u \cdot \left( \frac{\alpha}{1 - \alpha} \cdot \frac{p_2}{p_1} \right)^{1 - \alpha}.
+\]</span></p>
+<p><strong>Slutsky terms.</strong> From <a href="#eq-demand" class="quarto-xref">Equation&nbsp;2</a>, <span class="math inline">\(\partial x_1^* / \partial p_1 = -\alpha m / p_1^2\)</span> and <span class="math inline">\(\partial x_1^* / \partial m = \alpha / p_1\)</span>. For the substitution effect, differentiate <span class="math inline">\(h_1\)</span>: <span class="math display">\[
+\frac{\partial h_1}{\partial p_1} = -(1 - \alpha) \cdot \frac{h_1}{p_1}.
+\]</span> Evaluated at the <em>Marshallian</em> bundle where <span class="math inline">\(h_1 = x_1^*\)</span> (the duality identity), this gives <span class="math inline">\(\partial h_1 / \partial p_1 = -(1 - \alpha) \alpha m / p_1^2\)</span>.</p>
+<p><strong>Verification at baseline.</strong> Here <span class="math inline">\(\alpha = 0.4\)</span>, <span class="math inline">\(p_1 = 2\)</span>, <span class="math inline">\(p_2 = 3\)</span>, <span class="math inline">\(m = 60\)</span>, <span class="math inline">\(x_1^* = 12\)</span>.</p>
+<ul>
+<li>Total effect: <span class="math inline">\(-\alpha m / p_1^2 = -0.4 \cdot 60 / 4 = -6.0\)</span>.</li>
+<li>Substitution: <span class="math inline">\(-(1 - \alpha) \alpha m / p_1^2 = -0.6 \cdot 0.4 \cdot 60 / 4 = -3.6\)</span>.</li>
+<li>Income: <span class="math inline">\(- x_1^* \cdot \alpha / p_1 = -12 \cdot 0.4 / 2 = -2.4\)</span>.</li>
+</ul>
+<p>Sum of substitution and income effects: <span class="math inline">\(-3.6 + (-2.4) = -6.0\)</span>, matching the total effect. The Slutsky decomposition holds.</p>
+<p>For Cobb-Douglas, the substitution effect is always <span class="math inline">\((1 - \alpha)\)</span> of the total and the income effect is <span class="math inline">\(\alpha\)</span> of the total — a clean closed-form decomposition that almost no other utility function delivers.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li>Mas-Colell, Whinston, Green. <em>Microeconomic Theory</em>, Section 3.D.</li>
+<li>Varian. <em>Microeconomic Analysis</em>, Chapter 7.</li>
+<li>Jehle and Reny. <em>Advanced Microeconomic Theory</em>, Section 1.4 (Cobb-Douglas as a worked example throughout).</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/amitkumargoyal\.github\.io\/econ-notes\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><a href="https://econschool.in">Amit Goyal</a> · <a href="mailto:amit@econschool.in" class="email">amit@econschool.in</a> · <a href="https://econschool.in">econschool.in</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

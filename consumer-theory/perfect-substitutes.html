@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Consumer Theory – Econ Notes</title>
+<title>Perfect Substitutes – Econ Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -74,6 +74,35 @@ ul.task-list li input[type="checkbox"] {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Source+Serif+4:wght@400;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -100,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../consumer-theory/index.html" aria-current="page"> 
+    <a class="nav-link" href="../consumer-theory/index.html"> 
 <span class="menu-text">Consumer Theory</span></a>
   </li>  
 </ul>
@@ -119,7 +148,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#topics" id="toc-topics" class="nav-link active" data-scroll-target="#topics">Topics</a></li>
+  <li><a href="#the-model" id="toc-the-model" class="nav-link active" data-scroll-target="#the-model">The model</a></li>
+  <li><a href="#solving-the-problem" id="toc-solving-the-problem" class="nav-link" data-scroll-target="#solving-the-problem">Solving the problem</a></li>
+  <li><a href="#comparative-statics" id="toc-comparative-statics" class="nav-link" data-scroll-target="#comparative-statics">Comparative statics</a></li>
+  <li><a href="#worked-example" id="toc-worked-example" class="nav-link" data-scroll-target="#worked-example">Worked example</a></li>
+  <li><a href="#sec-figure" id="toc-sec-figure" class="nav-link" data-scroll-target="#sec-figure">Figure</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -128,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Consumer Theory</h1>
+<h1 class="title">Perfect Substitutes</h1>
 </div>
 
 
@@ -145,13 +180,229 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This section develops standard consumer theory from utility maximisation, with full derivations of demand functions and comparative statics.</p>
-<section id="topics" class="level2">
-<h2 class="anchored" data-anchor-id="topics">Topics</h2>
+<p>A consumer chooses a bundle <span class="math inline">\((x_1, x_2) \in \mathbb{R}^2_+\)</span> of two goods to maximise utility subject to a budget constraint. When the goods are <em>perfect substitutes</em>, the consumer treats them as interchangeable at a fixed rate. This module derives the demand correspondence, traces out the comparative statics in <span class="math inline">\((p_1, p_2, m)\)</span>, and works through one numerical example.</p>
+<section id="the-model" class="level2">
+<h2 class="anchored" data-anchor-id="the-model">The model</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition: Perfect-substitutes utility">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: Perfect-substitutes utility
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Goods <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> are <strong>perfect substitutes</strong> if preferences are represented by <span class="math display">\[
+u(x_1, x_2) = a x_1 + b x_2, \qquad a, b &gt; 0.
+\]</span> The marginal rate of substitution is constant and equal to <span class="math inline">\(a/b\)</span>.</p>
+</div>
+</div>
+<p>The consumer’s problem is <span id="eq-problem"><span class="math display">\[
+\max_{x_1, x_2 \ge 0} \; a x_1 + b x_2 \quad \text{s.t.} \quad p_1 x_1 + p_2 x_2 \le m,
+\tag{1}\]</span></span> with <span class="math inline">\(p_1, p_2 &gt; 0\)</span> and <span class="math inline">\(m &gt; 0\)</span>.</p>
+<p>Because the objective is linear in <span class="math inline">\((x_1, x_2)\)</span>, indifference curves are straight lines with slope <span class="math inline">\(-a/b\)</span>. The budget line has slope <span class="math inline">\(-p_1/p_2\)</span>. The solution depends entirely on which slope is steeper.</p>
+</section>
+<section id="solving-the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="solving-the-problem">Solving the problem</h2>
+<p>The Lagrangian approach is unhelpful here — the optimum is a corner solution except on a knife-edge. Compare the marginal utility per rupee on each good: <span class="math display">\[
+\frac{a}{p_1} \;\; \text{vs.} \;\; \frac{b}{p_2}.
+\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition: Demand correspondence">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Proposition: Demand correspondence
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The demand correspondence for the perfect-substitutes problem is <span id="eq-demand"><span class="math display">\[
+(x_1^*, x_2^*) =
+\begin{cases}
+\bigl(\dfrac{m}{p_1},\; 0\bigr) &amp; \text{if } \dfrac{a}{p_1} &gt; \dfrac{b}{p_2}, \\[1em]
+\bigl(0,\; \dfrac{m}{p_2}\bigr) &amp; \text{if } \dfrac{a}{p_1} &lt; \dfrac{b}{p_2}, \\[1em]
+\bigl\{(x_1, x_2) : p_1 x_1 + p_2 x_2 = m,\; x_1, x_2 \ge 0\bigr\} &amp; \text{if } \dfrac{a}{p_1} = \dfrac{b}{p_2}.
+\end{cases}
+\tag{2}\]</span></span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Proof sketch">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Proof sketch
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Rewrite utility along the budget line. Substituting <span class="math inline">\(x_2 = (m - p_1 x_1)/p_2\)</span> into <span class="math inline">\(u\)</span> gives <span class="math display">\[
+u(x_1) = a x_1 + \frac{b}{p_2}(m - p_1 x_1) = \frac{b m}{p_2} + \left(a - \frac{b p_1}{p_2}\right) x_1.
+\]</span> This is linear in <span class="math inline">\(x_1\)</span>. The coefficient on <span class="math inline">\(x_1\)</span> is positive iff <span class="math inline">\(a/p_1 &gt; b/p_2\)</span>, in which case the consumer pushes <span class="math inline">\(x_1\)</span> to its maximum <span class="math inline">\(m/p_1\)</span>. The coefficient is negative iff <span class="math inline">\(a/p_1 &lt; b/p_2\)</span>, in which case <span class="math inline">\(x_1 = 0\)</span>. When the coefficient is zero, every feasible bundle on the budget line is optimal.</p>
+</div>
+</div>
+</div>
+<p>Note that demand is single-valued except on the knife-edge <span class="math inline">\(a/p_1 = b/p_2\)</span>, where it is a <em>correspondence</em> — the entire budget line is optimal.</p>
+</section>
+<section id="comparative-statics" class="level2">
+<h2 class="anchored" data-anchor-id="comparative-statics">Comparative statics</h2>
+<p>Equation <a href="#eq-demand" class="quarto-xref">Equation&nbsp;2</a> makes the comparative statics immediate.</p>
+<p><strong>Own-price effects.</strong> Holding <span class="math inline">\((p_2, m, a, b)\)</span> fixed, raising <span class="math inline">\(p_1\)</span> from a low value to a high one switches the consumer from corner <span class="math inline">\((m/p_1, 0)\)</span> to corner <span class="math inline">\((0, m/p_2)\)</span> as <span class="math inline">\(p_1\)</span> crosses the threshold <span class="math inline">\(p_1^* = a p_2 / b\)</span>. Demand for good 1 falls <em>discontinuously</em> from <span class="math inline">\(m / p_1^*\)</span> to <span class="math inline">\(0\)</span>.</p>
+<p><strong>Cross-price effects.</strong> Symmetrically, raising <span class="math inline">\(p_2\)</span> holding <span class="math inline">\(p_1\)</span> fixed shifts the consumer from corner <span class="math inline">\((0, m/p_2)\)</span> to corner <span class="math inline">\((m/p_1, 0)\)</span> at <span class="math inline">\(p_2^* = b p_1 / a\)</span>.</p>
+<p><strong>Income effects.</strong> Whichever corner is optimal, income expansion is linear: doubling <span class="math inline">\(m\)</span> doubles the optimal quantity of the chosen good. Income elasticity is <span class="math inline">\(1\)</span>. Both goods are normal in the (weak) sense that demand never falls with income.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="The kink matters">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>The kink matters
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The discontinuity at <span class="math inline">\(p_1 = a p_2 / b\)</span> is not a pathology — it is the defining feature of perfect substitutes. A standard Walrasian framework requires demand to be a <em>correspondence</em> rather than a function precisely to accommodate this case.</p>
+</div>
+</div>
+</section>
+<section id="worked-example" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example">Worked example</h2>
+<p>Take <span class="math inline">\(a = 2\)</span>, <span class="math inline">\(b = 1\)</span>, <span class="math inline">\(p_2 = 1\)</span>, <span class="math inline">\(m = 100\)</span>, and let <span class="math inline">\(p_1\)</span> vary.</p>
+<p>The marginal-utility-per-rupee comparison is <span class="math display">\[
+\frac{2}{p_1} \;\; \text{vs.} \;\; \frac{1}{1} = 1,
+\]</span> so the consumer specialises in good 1 whenever <span class="math inline">\(p_1 &lt; 2\)</span> and in good 2 whenever <span class="math inline">\(p_1 &gt; 2\)</span>.</p>
 <ul>
-<li><a href="../consumer-theory/perfect-substitutes.html">Perfect Substitutes</a></li>
-<li><em>Cobb–Douglas</em> (coming soon)</li>
-<li><em>Perfect Complements</em> (coming soon)</li>
+<li>At <span class="math inline">\(p_1 = 1\)</span>: <span class="math inline">\(x_1^* = 100\)</span>, <span class="math inline">\(x_2^* = 0\)</span>, utility <span class="math inline">\(= 200\)</span>.</li>
+<li>At <span class="math inline">\(p_1 = 2\)</span>: any bundle on the line <span class="math inline">\(2 x_1 + x_2 = 100\)</span> is optimal; utility <span class="math inline">\(= 100\)</span> regardless.</li>
+<li>At <span class="math inline">\(p_1 = 4\)</span>: <span class="math inline">\(x_1^* = 0\)</span>, <span class="math inline">\(x_2^* = 100\)</span>, utility <span class="math inline">\(= 100\)</span>.</li>
+</ul>
+<p>The demand for good 1 as a function of <span class="math inline">\(p_1\)</span> is <span class="math display">\[
+x_1^*(p_1) =
+\begin{cases}
+100 / p_1 &amp; \text{if } p_1 &lt; 2, \\
+\text{any value in } [0,\; 50] &amp; \text{if } p_1 = 2, \\
+0 &amp; \text{if } p_1 &gt; 2.
+\end{cases}
+\]</span></p>
+<p>A figure illustrating the three regimes is in <a href="#sec-figure" class="quarto-xref">Section&nbsp;5</a>.</p>
+</section>
+<section id="sec-figure" class="level2">
+<h2 class="anchored" data-anchor-id="sec-figure">Figure</h2>
+<div id="cell-fig-three-regimes" class="cell" data-fig-height="3.5" data-fig-width="10" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div id="fig-three-regimes" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-three-regimes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="perfect-substitutes_files/figure-html/fig-three-regimes-output-1.png" width="951" height="329" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-three-regimes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Perfect-substitutes demand across three regimes. Left: <span class="math inline">\(p_1 = 1 &lt; 2\)</span>, consumer specialises in good 1. Centre: <span class="math inline">\(p_1 = 2\)</span>, entire budget line is optimal. Right: <span class="math inline">\(p_1 = 4 &gt; 2\)</span>, consumer specialises in good 2.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<div class="callout callout-style-simple callout-note callout-titled" title="Exercise 1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Show that if <span class="math inline">\(a = b\)</span> and <span class="math inline">\(p_1 = p_2\)</span>, then every bundle on the budget line yields the same utility. What is that utility as a function of <span class="math inline">\(m\)</span> and <span class="math inline">\(p_1\)</span>?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>With <span class="math inline">\(a = b\)</span> and <span class="math inline">\(p_1 = p_2 \equiv p\)</span>, the marginal-utility-per-rupee ratio is <span class="math inline">\(a/p\)</span> on both goods, so the consumer is indifferent across the budget line. For any feasible <span class="math inline">\((x_1, x_2)\)</span> with <span class="math inline">\(p x_1 + p x_2 = m\)</span>, we have <span class="math inline">\(x_1 + x_2 = m/p\)</span> and so <span class="math inline">\(u = a(x_1 + x_2) = a m / p\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled" title="Exercise 2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose <span class="math inline">\(a = 3\)</span>, <span class="math inline">\(b = 2\)</span>, <span class="math inline">\(m = 60\)</span>. Derive the <em>indirect utility function</em> <span class="math inline">\(v(p_1, p_2, m)\)</span>. Verify it is homogeneous of degree zero in <span class="math inline">\((p_1, p_2, m)\)</span> and decreasing in each price.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The optimum is at one of the two corners. Direct computation gives <span class="math display">\[
+v(p_1, p_2, m) = \max\left\{ \frac{a m}{p_1},\; \frac{b m}{p_2} \right\} = m \cdot \max\left\{ \frac{a}{p_1},\; \frac{b}{p_2} \right\}.
+\]</span> Homogeneity of degree zero: scaling <span class="math inline">\((p_1, p_2, m)\)</span> by <span class="math inline">\(\lambda &gt; 0\)</span> leaves <span class="math inline">\(v\)</span> unchanged. Monotonicity: raising <span class="math inline">\(p_1\)</span> (weakly) decreases the first ratio, hence <span class="math inline">\(v\)</span> is weakly decreasing in <span class="math inline">\(p_1\)</span> (strictly, if <span class="math inline">\(a/p_1 &gt; b/p_2\)</span>).</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled" title="Exercise 3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sketch the price-offer curve in <span class="math inline">\((x_1, x_2)\)</span>-space as <span class="math inline">\(p_1\)</span> varies from <span class="math inline">\(0\)</span> to <span class="math inline">\(\infty\)</span> with <span class="math inline">\(p_2 = 1\)</span> and <span class="math inline">\(m = 100\)</span>. Where are its endpoints? Does it pass through the interior of the budget set?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>As <span class="math inline">\(p_1 \downarrow 0\)</span>, <span class="math inline">\(x_1^* = m/p_1 \to \infty\)</span> and <span class="math inline">\(x_2^* = 0\)</span>, so the curve runs out along the <span class="math inline">\(x_1\)</span>-axis. As <span class="math inline">\(p_1\)</span> crosses <span class="math inline">\(p_1^* = ap_2/b = 2\)</span>, the consumer jumps from <span class="math inline">\((50, 0)\)</span> to <span class="math inline">\((0, 100)\)</span>, and at exactly <span class="math inline">\(p_1 = 2\)</span> the <em>entire</em> budget line is optimal. For <span class="math inline">\(p_1 &gt; 2\)</span> the consumer stays at <span class="math inline">\((0, 100)\)</span>. The price-offer curve is therefore the <span class="math inline">\(x_1\)</span>-axis segment from <span class="math inline">\((50, 0)\)</span> outward to <span class="math inline">\(\infty\)</span>, plus the budget line at <span class="math inline">\(p_1 = 2\)</span> from <span class="math inline">\((50, 0)\)</span> to <span class="math inline">\((0, 100)\)</span>, plus the single point <span class="math inline">\((0, 100)\)</span>. It does not pass through the strict interior of any budget set.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li>Mas-Colell, Whinston, Green. <em>Microeconomic Theory</em>, Section 3.D.</li>
+<li>Varian. <em>Microeconomic Analysis</em>, Chapter 7.</li>
 </ul>
 
 

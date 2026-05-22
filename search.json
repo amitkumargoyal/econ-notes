@@ -1,17 +1,59 @@
 [
   {
-    "objectID": "consumer-theory/index.html",
-    "href": "consumer-theory/index.html",
-    "title": "Consumer Theory",
+    "objectID": "consumer-theory/perfect-substitutes.html",
+    "href": "consumer-theory/perfect-substitutes.html",
+    "title": "Perfect Substitutes",
     "section": "",
-    "text": "This section develops standard consumer theory from utility maximisation, with full derivations of demand functions and comparative statics."
+    "text": "A consumer chooses a bundle \\((x_1, x_2) \\in \\mathbb{R}^2_+\\) of two goods to maximise utility subject to a budget constraint. When the goods are perfect substitutes, the consumer treats them as interchangeable at a fixed rate. This module derives the demand correspondence, traces out the comparative statics in \\((p_1, p_2, m)\\), and works through one numerical example."
   },
   {
-    "objectID": "consumer-theory/index.html#topics",
-    "href": "consumer-theory/index.html#topics",
-    "title": "Consumer Theory",
-    "section": "Topics",
-    "text": "Topics\n\nPerfect Substitutes (coming soon)\nCobb–Douglas (coming soon)\nPerfect Complements (coming soon)"
+    "objectID": "consumer-theory/perfect-substitutes.html#the-model",
+    "href": "consumer-theory/perfect-substitutes.html#the-model",
+    "title": "Perfect Substitutes",
+    "section": "The model",
+    "text": "The model\n\n\n\n\n\n\nNoteDefinition: Perfect-substitutes utility\n\n\n\nGoods \\(1\\) and \\(2\\) are perfect substitutes if preferences are represented by \\[\nu(x_1, x_2) = a x_1 + b x_2, \\qquad a, b &gt; 0.\n\\] The marginal rate of substitution is constant and equal to \\(a/b\\).\n\n\nThe consumer’s problem is \\[\n\\max_{x_1, x_2 \\ge 0} \\; a x_1 + b x_2 \\quad \\text{s.t.} \\quad p_1 x_1 + p_2 x_2 \\le m,\n\\tag{1}\\] with \\(p_1, p_2 &gt; 0\\) and \\(m &gt; 0\\).\nBecause the objective is linear in \\((x_1, x_2)\\), indifference curves are straight lines with slope \\(-a/b\\). The budget line has slope \\(-p_1/p_2\\). The solution depends entirely on which slope is steeper."
+  },
+  {
+    "objectID": "consumer-theory/perfect-substitutes.html#solving-the-problem",
+    "href": "consumer-theory/perfect-substitutes.html#solving-the-problem",
+    "title": "Perfect Substitutes",
+    "section": "Solving the problem",
+    "text": "Solving the problem\nThe Lagrangian approach is unhelpful here — the optimum is a corner solution except on a knife-edge. Compare the marginal utility per rupee on each good: \\[\n\\frac{a}{p_1} \\;\\; \\text{vs.} \\;\\; \\frac{b}{p_2}.\n\\]\n\n\n\n\n\n\nImportantProposition: Demand correspondence\n\n\n\nThe demand correspondence for the perfect-substitutes problem is \\[\n(x_1^*, x_2^*) =\n\\begin{cases}\n\\bigl(\\dfrac{m}{p_1},\\; 0\\bigr) & \\text{if } \\dfrac{a}{p_1} &gt; \\dfrac{b}{p_2}, \\\\[1em]\n\\bigl(0,\\; \\dfrac{m}{p_2}\\bigr) & \\text{if } \\dfrac{a}{p_1} &lt; \\dfrac{b}{p_2}, \\\\[1em]\n\\bigl\\{(x_1, x_2) : p_1 x_1 + p_2 x_2 = m,\\; x_1, x_2 \\ge 0\\bigr\\} & \\text{if } \\dfrac{a}{p_1} = \\dfrac{b}{p_2}.\n\\end{cases}\n\\tag{2}\\]\n\n\n\n\n\n\n\n\nTipProof sketch\n\n\n\n\n\nRewrite utility along the budget line. Substituting \\(x_2 = (m - p_1 x_1)/p_2\\) into \\(u\\) gives \\[\nu(x_1) = a x_1 + \\frac{b}{p_2}(m - p_1 x_1) = \\frac{b m}{p_2} + \\left(a - \\frac{b p_1}{p_2}\\right) x_1.\n\\] This is linear in \\(x_1\\). The coefficient on \\(x_1\\) is positive iff \\(a/p_1 &gt; b/p_2\\), in which case the consumer pushes \\(x_1\\) to its maximum \\(m/p_1\\). The coefficient is negative iff \\(a/p_1 &lt; b/p_2\\), in which case \\(x_1 = 0\\). When the coefficient is zero, every feasible bundle on the budget line is optimal.\n\n\n\nNote that demand is single-valued except on the knife-edge \\(a/p_1 = b/p_2\\), where it is a correspondence — the entire budget line is optimal."
+  },
+  {
+    "objectID": "consumer-theory/perfect-substitutes.html#comparative-statics",
+    "href": "consumer-theory/perfect-substitutes.html#comparative-statics",
+    "title": "Perfect Substitutes",
+    "section": "Comparative statics",
+    "text": "Comparative statics\nEquation Equation 2 makes the comparative statics immediate.\nOwn-price effects. Holding \\((p_2, m, a, b)\\) fixed, raising \\(p_1\\) from a low value to a high one switches the consumer from corner \\((m/p_1, 0)\\) to corner \\((0, m/p_2)\\) as \\(p_1\\) crosses the threshold \\(p_1^* = a p_2 / b\\). Demand for good 1 falls discontinuously from \\(m / p_1^*\\) to \\(0\\).\nCross-price effects. Symmetrically, raising \\(p_2\\) holding \\(p_1\\) fixed shifts the consumer from corner \\((0, m/p_2)\\) to corner \\((m/p_1, 0)\\) at \\(p_2^* = b p_1 / a\\).\nIncome effects. Whichever corner is optimal, income expansion is linear: doubling \\(m\\) doubles the optimal quantity of the chosen good. Income elasticity is \\(1\\). Both goods are normal in the (weak) sense that demand never falls with income.\n\n\n\n\n\n\nWarningThe kink matters\n\n\n\nThe discontinuity at \\(p_1 = a p_2 / b\\) is not a pathology — it is the defining feature of perfect substitutes. A standard Walrasian framework requires demand to be a correspondence rather than a function precisely to accommodate this case."
+  },
+  {
+    "objectID": "consumer-theory/perfect-substitutes.html#worked-example",
+    "href": "consumer-theory/perfect-substitutes.html#worked-example",
+    "title": "Perfect Substitutes",
+    "section": "Worked example",
+    "text": "Worked example\nTake \\(a = 2\\), \\(b = 1\\), \\(p_2 = 1\\), \\(m = 100\\), and let \\(p_1\\) vary.\nThe marginal-utility-per-rupee comparison is \\[\n\\frac{2}{p_1} \\;\\; \\text{vs.} \\;\\; \\frac{1}{1} = 1,\n\\] so the consumer specialises in good 1 whenever \\(p_1 &lt; 2\\) and in good 2 whenever \\(p_1 &gt; 2\\).\n\nAt \\(p_1 = 1\\): \\(x_1^* = 100\\), \\(x_2^* = 0\\), utility \\(= 200\\).\nAt \\(p_1 = 2\\): any bundle on the line \\(2 x_1 + x_2 = 100\\) is optimal; utility \\(= 100\\) regardless.\nAt \\(p_1 = 4\\): \\(x_1^* = 0\\), \\(x_2^* = 100\\), utility \\(= 100\\).\n\nThe demand for good 1 as a function of \\(p_1\\) is \\[\nx_1^*(p_1) =\n\\begin{cases}\n100 / p_1 & \\text{if } p_1 &lt; 2, \\\\\n\\text{any value in } [0,\\; 50] & \\text{if } p_1 = 2, \\\\\n0 & \\text{if } p_1 &gt; 2.\n\\end{cases}\n\\]\nA figure illustrating the three regimes is in Section 5."
+  },
+  {
+    "objectID": "consumer-theory/perfect-substitutes.html#sec-figure",
+    "href": "consumer-theory/perfect-substitutes.html#sec-figure",
+    "title": "Perfect Substitutes",
+    "section": "Figure",
+    "text": "Figure\n\n\n\n\n\n\n\n\nFigure 1: Perfect-substitutes demand across three regimes. Left: \\(p_1 = 1 &lt; 2\\), consumer specialises in good 1. Centre: \\(p_1 = 2\\), entire budget line is optimal. Right: \\(p_1 = 4 &gt; 2\\), consumer specialises in good 2."
+  },
+  {
+    "objectID": "consumer-theory/perfect-substitutes.html#exercises",
+    "href": "consumer-theory/perfect-substitutes.html#exercises",
+    "title": "Perfect Substitutes",
+    "section": "Exercises",
+    "text": "Exercises\n\n\n\n\n\n\nNoteExercise 1\n\n\n\nShow that if \\(a = b\\) and \\(p_1 = p_2\\), then every bundle on the budget line yields the same utility. What is that utility as a function of \\(m\\) and \\(p_1\\)?\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nWith \\(a = b\\) and \\(p_1 = p_2 \\equiv p\\), the marginal-utility-per-rupee ratio is \\(a/p\\) on both goods, so the consumer is indifferent across the budget line. For any feasible \\((x_1, x_2)\\) with \\(p x_1 + p x_2 = m\\), we have \\(x_1 + x_2 = m/p\\) and so \\(u = a(x_1 + x_2) = a m / p\\).\n\n\n\n\n\n\n\n\n\nNoteExercise 2\n\n\n\nSuppose \\(a = 3\\), \\(b = 2\\), \\(m = 60\\). Derive the indirect utility function \\(v(p_1, p_2, m)\\). Verify it is homogeneous of degree zero in \\((p_1, p_2, m)\\) and decreasing in each price.\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nThe optimum is at one of the two corners. Direct computation gives \\[\nv(p_1, p_2, m) = \\max\\left\\{ \\frac{a m}{p_1},\\; \\frac{b m}{p_2} \\right\\} = m \\cdot \\max\\left\\{ \\frac{a}{p_1},\\; \\frac{b}{p_2} \\right\\}.\n\\] Homogeneity of degree zero: scaling \\((p_1, p_2, m)\\) by \\(\\lambda &gt; 0\\) leaves \\(v\\) unchanged. Monotonicity: raising \\(p_1\\) (weakly) decreases the first ratio, hence \\(v\\) is weakly decreasing in \\(p_1\\) (strictly, if \\(a/p_1 &gt; b/p_2\\)).\n\n\n\n\n\n\n\n\n\nNoteExercise 3\n\n\n\nSketch the price-offer curve in \\((x_1, x_2)\\)-space as \\(p_1\\) varies from \\(0\\) to \\(\\infty\\) with \\(p_2 = 1\\) and \\(m = 100\\). Where are its endpoints? Does it pass through the interior of the budget set?\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nAs \\(p_1 \\downarrow 0\\), \\(x_1^* = m/p_1 \\to \\infty\\) and \\(x_2^* = 0\\), so the curve runs out along the \\(x_1\\)-axis. As \\(p_1\\) crosses \\(p_1^* = ap_2/b = 2\\), the consumer jumps from \\((50, 0)\\) to \\((0, 100)\\), and at exactly \\(p_1 = 2\\) the entire budget line is optimal. For \\(p_1 &gt; 2\\) the consumer stays at \\((0, 100)\\). The price-offer curve is therefore the \\(x_1\\)-axis segment from \\((50, 0)\\) outward to \\(\\infty\\), plus the budget line at \\(p_1 = 2\\) from \\((50, 0)\\) to \\((0, 100)\\), plus the single point \\((0, 100)\\). It does not pass through the strict interior of any budget set."
+  },
+  {
+    "objectID": "consumer-theory/perfect-substitutes.html#references",
+    "href": "consumer-theory/perfect-substitutes.html#references",
+    "title": "Perfect Substitutes",
+    "section": "References",
+    "text": "References\n\nMas-Colell, Whinston, Green. Microeconomic Theory, Section 3.D.\nVarian. Microeconomic Analysis, Chapter 7."
   },
   {
     "objectID": "index.html",
@@ -33,5 +75,19 @@
     "title": "Econ Notes",
     "section": "About",
     "text": "About\nThese notes are written for students preparing for postgraduate study in economics. The emphasis is on full mathematical working — no skipped algebra, no hand-waved geometry. Figures are generated from code so they can be reproduced and adapted.\nAuthor: Amit Goyal · amit@econschool.in"
+  },
+  {
+    "objectID": "consumer-theory/index.html",
+    "href": "consumer-theory/index.html",
+    "title": "Consumer Theory",
+    "section": "",
+    "text": "This section develops standard consumer theory from utility maximisation, with full derivations of demand functions and comparative statics."
+  },
+  {
+    "objectID": "consumer-theory/index.html#topics",
+    "href": "consumer-theory/index.html#topics",
+    "title": "Consumer Theory",
+    "section": "Topics",
+    "text": "Topics\n\nPerfect Substitutes\nCobb–Douglas (coming soon)\nPerfect Complements (coming soon)"
   }
 ]

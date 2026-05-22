@@ -24,3 +24,5 @@ _site/
 
 /.quarto/
 **/*.quarto_ipynb
+.envrc
+_freeze/

@@ -1,0 +1,131 @@
+/* Econschool brand — restrained layer */
+
+/* Body — slightly larger than browser default but not inflated */
+body {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* H1 only gets the display face. H2+ stay in the body face, just in violet. */
+h1, h1.title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid #B8C5B5;
+}
+
+h3 {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-top: 1.6rem;
+}
+
+h4, h5, h6 {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 1.4rem;
+}
+
+/* Body links — ink at rest, terracotta on hover. Stops the busy underline storm. */
+.content a:not(.nav-link):not(.navbar-brand) {
+  color: #1F1F1F;
+  border-bottom: 1px solid rgba(160, 58, 44, 0.4);
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.content a:not(.nav-link):not(.navbar-brand):hover {
+  color: #A03A2C;
+  border-bottom-color: #A03A2C;
+}
+
+/* Math — keep MathJax at slightly above body for legibility */
+.MathJax {
+  font-size: 1.05em !important;
+}
+
+/* Code — readable mono, mild background */
+pre, code {
+  font-family: "JetBrains Mono", Consolas, "Courier New", monospace;
+  font-size: 0.9em;
+}
+
+/* Navbar — minimal */
+.navbar {
+  border-bottom: 1px solid rgba(184, 197, 181, 0.5);
+}
+
+.navbar-brand {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  color: #A03A2C !important;
+}
+
+.navbar-brand:hover {
+  color: #5A1BA6 !important;
+}
+
+.navbar .nav-link {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1rem;
+  color: #555555;
+}
+
+.navbar .nav-link:hover {
+  color: #A03A2C;
+}
+
+/* TOC sidebar — quiet, secondary */
+#TOC > h2,
+.toc-title,
+nav[role="doc-toc"] > h2 {
+  font-family: "Source Serif 4", Georgia, serif !important;
+  font-weight: 600 !important;
+  font-size: 0.78rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: #555555 !important;
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+
+.sidebar nav a,
+#TOC a {
+  color: #555555;
+  border-bottom: none;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active,
+#TOC a:hover,
+#TOC a.active {
+  color: #A03A2C;
+  border-bottom: none;
+}
+
+/* Page footer */
+.page-footer {
+  border-top: 1px solid #B8C5B5;
+  padding-top: 1rem;
+  font-size: 0.88rem;
+  color: #555555;
+}
+
+/* Horizontal rules in body content — sage, with space */
+hr {
+  border: 0;
+  border-top: 1px solid #B8C5B5;
+  margin: 2rem 0;
+}

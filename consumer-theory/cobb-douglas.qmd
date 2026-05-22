@@ -1,0 +1,317 @@
+---
+title: "Cobb-Douglas"
+---
+
+A consumer chooses a bundle $(x_1, x_2) \in \mathbb{R}^2_{++}$ of two goods to maximise utility subject to a budget constraint. **Cobb-Douglas preferences** are the workhorse interior-solution case: smooth indifference curves, a unique tangency, and demands that are linear in income and unit-elastic in own price. The defining oddity — and the pedagogical payoff of this module — is that the *expenditure share* on each good is constant across all prices and incomes. This module derives Marshallian demand, traces the comparative statics, and works through one numerical example.
+
+## The model
+
+::: {.callout-note title="Definition: Cobb-Douglas utility"}
+Goods $1$ and $2$ have **Cobb-Douglas preferences** if they are represented by
+$$
+u(x_1, x_2) = x_1^{\alpha} \, x_2^{1 - \alpha}, \qquad \alpha \in (0, 1).
+$$
+The marginal rate of substitution is $\mathrm{MRS} = \dfrac{\alpha}{1 - \alpha} \cdot \dfrac{x_2}{x_1}$, decreasing in $x_1$ along any indifference curve.
+:::
+
+The consumer's problem is
+$$
+\max_{x_1, x_2 > 0} \; x_1^{\alpha} x_2^{1 - \alpha} \quad \text{s.t.} \quad p_1 x_1 + p_2 x_2 \le m,
+$$ {#eq-problem}
+with $p_1, p_2 > 0$ and $m > 0$.
+
+Unlike the perfect-substitutes case, the objective is strictly quasi-concave and the indifference curves are strictly convex, so the solution is unique and interior (no corner solutions, no demand correspondences). The Lagrangian works cleanly here.
+
+## Solving the problem
+
+At an interior optimum, the indifference curve is tangent to the budget line: the marginal rate of substitution equals the price ratio, and the budget binds. These two conditions pin down a unique $(x_1^*, x_2^*)$.
+
+::: {.callout-important title="Proposition: Marshallian demand"}
+The Marshallian demands for the Cobb-Douglas problem are
+$$
+x_1^*(p_1, p_2, m) = \frac{\alpha \, m}{p_1}, \qquad
+x_2^*(p_1, p_2, m) = \frac{(1 - \alpha) \, m}{p_2}.
+$$ {#eq-demand}
+The corresponding indirect utility is
+$$
+v(p_1, p_2, m) = \alpha^{\alpha} (1 - \alpha)^{1 - \alpha} \cdot \frac{m}{p_1^{\alpha} \, p_2^{1 - \alpha}}.
+$$ {#eq-indirect}
+:::
+
+::: {.callout-tip title="Proof sketch" collapse="true"}
+The Lagrangian is
+$$
+\mathcal{L}(x_1, x_2, \lambda) = x_1^{\alpha} x_2^{1 - \alpha} - \lambda \, (p_1 x_1 + p_2 x_2 - m).
+$$
+The first-order conditions are
+$$
+\alpha \, x_1^{\alpha - 1} x_2^{1 - \alpha} = \lambda \, p_1, \qquad
+(1 - \alpha) \, x_1^{\alpha} x_2^{-\alpha} = \lambda \, p_2.
+$$
+Dividing the first by the second eliminates $\lambda$ and gives the tangency condition
+$$
+\frac{\alpha}{1 - \alpha} \cdot \frac{x_2}{x_1} = \frac{p_1}{p_2}
+\quad \Longleftrightarrow \quad
+p_2 x_2 = \frac{1 - \alpha}{\alpha} \, p_1 x_1.
+$$
+Substituting into the budget constraint $p_1 x_1 + p_2 x_2 = m$ yields $p_1 x_1 = \alpha m$, hence $x_1^* = \alpha m / p_1$. Symmetrically $x_2^* = (1 - \alpha) m / p_2$. Plugging back into $u$ gives the indirect utility @eq-indirect.
+:::
+
+A direct corollary, sometimes more useful than the demand itself:
+
+$$
+p_1 x_1^* = \alpha m, \qquad p_2 x_2^* = (1 - \alpha) m.
+$$ {#eq-shares}
+
+The consumer spends a *fixed* fraction $\alpha$ of income on good 1 and $1 - \alpha$ on good 2, regardless of prices.
+
+## Comparative statics
+
+Equation @eq-demand makes the comparative statics immediate. Take logs:
+$$
+\log x_1^* = \log \alpha + \log m - \log p_1.
+$$
+
+**Own-price elasticity.** $\dfrac{\partial \log x_1^*}{\partial \log p_1} = -1$. Cobb-Douglas demand is unit-elastic in own price: a $1\%$ increase in $p_1$ lowers $x_1^*$ by exactly $1\%$.
+
+**Cross-price elasticity.** $\dfrac{\partial \log x_1^*}{\partial \log p_2} = 0$. The demand for good 1 does not respond to the price of good 2 at all. Goods are neither substitutes nor complements in the Marshallian sense — they are *independent* in demand.
+
+**Income elasticity.** $\dfrac{\partial \log x_1^*}{\partial \log m} = 1$. Both goods are normal and the Engel curve is a ray through the origin; doubling income exactly doubles demand for each good.
+
+**Expenditure shares.** From @eq-shares, the share of income spent on good 1 is
+$$
+s_1 = \frac{p_1 x_1^*}{m} = \alpha,
+$$
+independent of $(p_1, p_2, m)$. This is the right-panel picture in @sec-figure.
+
+::: {.callout-warning title="A knife-edge property"}
+The constancy of expenditure shares is a *special* feature of Cobb-Douglas, not a general property of well-behaved preferences. The CES family with elasticity of substitution $\sigma \ne 1$ produces shares that vary with the price ratio (rising in $p_1$ if $\sigma < 1$, falling if $\sigma > 1$). Cobb-Douglas is the $\sigma = 1$ knife-edge. Students who internalise "shares are constant" as a general rule will get the wrong answer the first time they see CES.
+:::
+
+## Worked example
+
+Take $\alpha = 0.4$, $p_1 = 2$, $p_2 = 3$, $m = 60$.
+
+Marshallian demand:
+$$
+x_1^* = \frac{0.4 \times 60}{2} = 12, \qquad
+x_2^* = \frac{0.6 \times 60}{3} = 12.
+$$
+
+Expenditure on each good:
+$$
+p_1 x_1^* = 24 = 0.4 \times 60, \qquad p_2 x_2^* = 36 = 0.6 \times 60.
+$$
+
+Indirect utility:
+$$v = 0.4^{0.4} \cdot 0.6^{0.6} \cdot \frac{60}{2^{0.4} \, 3^{0.6}} \approx 0.5101 \cdot \frac{60}{2.5510} \approx 12.00.$$
+
+
+Now raise $p_1$ from $2$ to $4$, holding everything else fixed:
+$$
+x_1^* = \frac{0.4 \times 60}{4} = 6, \qquad x_2^* = 12 \text{ (unchanged)}.
+$$
+
+Good 1's quantity halved (own-price elasticity $-1$), good 2's quantity didn't move (cross-price elasticity $0$). Expenditure shares are still $(0.4, 0.6)$.
+
+The geometry of the indifference map plus budget line, and the expenditure-share picture as $p_1$ varies, is in @sec-figure.
+
+## Figure {#sec-figure}
+
+```{python}
+#| label: fig-cd-demand
+#| fig-cap: "Cobb-Douglas demand. Left: indifference map (three utility levels) with budget line and optimum at $\\alpha = 0.4$, $p_1 = 2$, $p_2 = 3$, $m = 60$. Right: expenditure shares as $p_1$ varies, holding $(p_2, m) = (3, 60)$ fixed. The shares are constant at $(\\alpha, 1 - \\alpha) = (0.4, 0.6)$, independent of $p_1$ — the defining feature of Cobb-Douglas."
+#| fig-width: 10
+#| fig-height: 4
+#| echo: false
+
+from dataclasses import dataclass
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Brand palette (Econschool style guide)
+VIOLET = "#5A1BA6"
+TERRACOTTA = "#A03A2C"
+SAGE = "#B8C5B5"
+CREAM = "#FAF7F2"
+INK = "#1F1F1F"
+
+
+@dataclass(frozen=True)
+class Params:
+    """Cobb-Douglas example: u(x1,x2) = x1^alpha * x2^(1-alpha)."""
+    alpha: float
+    p1: float
+    p2: float
+    m: float
+
+    @property
+    def optimum(self) -> tuple[float, float]:
+        return (self.alpha * self.m / self.p1,
+                (1 - self.alpha) * self.m / self.p2)
+
+    @property
+    def utility_at_optimum(self) -> float:
+        x1, x2 = self.optimum
+        return x1 ** self.alpha * x2 ** (1 - self.alpha)
+
+
+def plot_indifference_map(ax: plt.Axes, p: Params) -> None:
+    """Left panel: indifference curves, budget line, optimum."""
+    x1_intercept = p.m / p.p1
+    x2_intercept = p.m / p.p2
+    x_max = max(x1_intercept, x2_intercept) * 1.15
+    u_star = p.utility_at_optimum
+
+    # Indifference curves at three utility levels.
+    # u = x1^alpha * x2^(1-alpha)  =>  x2 = (u / x1^alpha)^(1 / (1-alpha))
+    x1 = np.linspace(0.5, x_max, 300)
+    for u_level in [0.6 * u_star, u_star, 1.4 * u_star]:
+        x2 = (u_level / x1 ** p.alpha) ** (1 / (1 - p.alpha))
+        ax.plot(x1, x2, color=TERRACOTTA, linewidth=0.9, alpha=0.65)
+
+    # Budget line
+    ax.plot([0, x1_intercept], [x2_intercept, 0],
+            color=VIOLET, linewidth=1.6, label="Budget line")
+
+    # Optimum (interior, unique)
+    ax.plot(*p.optimum, "o", color=VIOLET, markersize=9, zorder=5)
+    x1_opt, x2_opt = p.optimum
+    ax.annotate(rf"$(x_1^*, x_2^*) = ({x1_opt:.0f}, {x2_opt:.0f})$",
+                xy=p.optimum, xytext=(x1_opt + 1.5, x2_opt + 1.5),
+                color=INK, fontsize=10)
+
+    ax.set_xlim(0, x_max)
+    ax.set_ylim(0, x_max)
+    ax.set_xlabel(r"$x_1$")
+    ax.set_ylabel(r"$x_2$")
+    ax.set_title("Indifference map and optimum", color=INK)
+    ax.set_aspect("equal")
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+
+
+def plot_expenditure_shares(ax: plt.Axes, p: Params) -> None:
+    """Right panel: expenditure shares as p1 varies, p2 and m fixed."""
+    p1_grid = np.linspace(0.5, 8.0, 200)
+    # Shares are constants alpha and 1-alpha — independent of p1.
+    s1 = np.full_like(p1_grid, p.alpha)
+    s2 = np.full_like(p1_grid, 1 - p.alpha)
+
+    ax.plot(p1_grid, s1, color=VIOLET, linewidth=1.8,
+            label=fr"$s_1 = \alpha = {p.alpha}$")
+    ax.plot(p1_grid, s2, color=TERRACOTTA, linewidth=1.8,
+            label=fr"$s_2 = 1 - \alpha = {1 - p.alpha}$")
+
+    # Mark the baseline price p1 used in the left panel.
+    ax.axvline(p.p1, color=SAGE, linewidth=1.0, linestyle="--", alpha=0.8)
+    ax.text(p.p1 + 0.1, 0.02, fr"baseline $p_1 = {p.p1}$",
+            color=INK, fontsize=9, alpha=0.8)
+
+    ax.set_xlim(0.5, 8.0)
+    ax.set_ylim(0, 1)
+    ax.set_xlabel(r"$p_1$")
+    ax.set_ylabel("Expenditure share")
+    ax.set_title("Shares are constant in $p_1$", color=INK)
+    ax.legend(loc="center right", frameon=False)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+
+
+plt.rcParams.update({
+    "text.usetex": False,  # mathtext is enough for these labels; usetex is slow in CI
+    "font.family": "serif",
+    "axes.facecolor": CREAM,
+    "figure.facecolor": CREAM,
+    "axes.edgecolor": INK,
+    "axes.labelcolor": INK,
+    "xtick.color": INK,
+    "ytick.color": INK,
+})
+
+params = Params(alpha=0.4, p1=2, p2=3, m=60)
+
+fig, (ax_left, ax_right) = plt.subplots(1, 2, figsize=(10, 4))
+plot_indifference_map(ax_left, params)
+plot_expenditure_shares(ax_right, params)
+
+fig.tight_layout()
+plt.show()
+```
+
+## Exercises
+
+::: {.callout-note title="Exercise 1" appearance="simple"}
+Let $\alpha = 1/3$, $p_1 = 4$, $p_2 = 2$, $m = 120$. Compute the Marshallian demand $(x_1^*, x_2^*)$ and the indirect utility $v(p_1, p_2, m)$. Verify that the expenditure shares are $1/3$ and $2/3$.
+:::
+
+::: {.callout-tip title="Solution" collapse="true"}
+By @eq-demand,
+$$
+x_1^* = \frac{\alpha m}{p_1} = \frac{(1/3) \cdot 120}{4} = 10, \qquad
+x_2^* = \frac{(1 - \alpha) m}{p_2} = \frac{(2/3) \cdot 120}{2} = 40.
+$$
+Expenditure: $p_1 x_1^* = 40 = (1/3) \cdot 120$ and $p_2 x_2^* = 80 = (2/3) \cdot 120$, so shares are $1/3$ and $2/3$ as predicted by @eq-shares.
+
+By @eq-indirect,
+$$
+v = (1/3)^{1/3} (2/3)^{2/3} \cdot \frac{120}{4^{1/3} \cdot 2^{2/3}}
+  = (1/3)^{1/3} (2/3)^{2/3} \cdot \frac{120}{(4 \cdot 4)^{1/3} \cdot 2^{0}}
+$$
+which simplifies to $v \approx 0.5291 \cdot 47.622 \approx 25.20$.
+:::
+
+::: {.callout-note title="Exercise 2" appearance="simple"}
+Prove that the expenditure share on good 1 is $\alpha$ for *all* $(p_1, p_2, m) \in \mathbb{R}^3_{++}$. Then show that this property fails for quasi-linear preferences $u(x_1, x_2) = \log x_1 + x_2$: derive the demand for good 1 and the expenditure share, and explain why the share moves with $(p_1, m)$.
+:::
+
+::: {.callout-tip title="Solution" collapse="true"}
+**Cobb-Douglas.** From @eq-demand, $p_1 x_1^* = p_1 \cdot \alpha m / p_1 = \alpha m$, so $s_1 = p_1 x_1^* / m = \alpha$. No dependence on $(p_1, p_2, m)$.
+
+**Quasi-linear.** With $u = \log x_1 + x_2$, the tangency condition is $1 / x_1 = p_1 / p_2$, giving $x_1^* = p_2 / p_1$ as long as $m \ge p_2$ (so $x_2^* \ge 0$). Expenditure on good 1 is $p_1 x_1^* = p_2$, a constant in *currency*, not a share. The share is
+$$
+s_1 = \frac{p_2}{m},
+$$
+which falls as income rises (good 1 is a necessity in the quasi-linear sense) and rises with $p_2$. Constant *share* is special to CD; constant *expenditure* is the analogous property of quasi-linear preferences. Different invariants for different utility families — easy to conflate.
+:::
+
+::: {.callout-note title="Exercise 3" appearance="simple"}
+Derive the Hicksian (compensated) demand $h_1(p_1, p_2, \bar u)$ for good 1 by solving the expenditure-minimisation dual. Then state the Slutsky decomposition
+$$
+\frac{\partial x_1^*}{\partial p_1} = \frac{\partial h_1}{\partial p_1} - x_1^* \cdot \frac{\partial x_1^*}{\partial m}
+$$
+and verify it numerically at the baseline $(\alpha, p_1, p_2, m) = (0.4, 2, 3, 60)$.
+:::
+
+::: {.callout-tip title="Solution" collapse="true"}
+**Hicksian demand.** Solve
+$$
+\min_{x_1, x_2 > 0} \; p_1 x_1 + p_2 x_2 \quad \text{s.t.} \quad x_1^{\alpha} x_2^{1 - \alpha} \ge \bar u.
+$$
+The tangency condition is the same as in the primal, so the cost-minimising bundle satisfies $p_2 x_2 / (p_1 x_1) = (1 - \alpha) / \alpha$, i.e., $x_2 = \frac{(1 - \alpha) p_1}{\alpha \, p_2} \cdot x_1$. Substituting into the constraint $x_1^{\alpha} x_2^{1 - \alpha} = \bar u$ and solving:
+$$
+h_1(p_1, p_2, \bar u) = \bar u \cdot \left( \frac{\alpha}{1 - \alpha} \cdot \frac{p_2}{p_1} \right)^{1 - \alpha}.
+$$
+
+**Slutsky terms.** From @eq-demand, $\partial x_1^* / \partial p_1 = -\alpha m / p_1^2$ and $\partial x_1^* / \partial m = \alpha / p_1$. For the substitution effect, differentiate $h_1$:
+$$
+\frac{\partial h_1}{\partial p_1} = -(1 - \alpha) \cdot \frac{h_1}{p_1}.
+$$
+Evaluated at the *Marshallian* bundle where $h_1 = x_1^*$ (the duality identity), this gives $\partial h_1 / \partial p_1 = -(1 - \alpha) \alpha m / p_1^2$.
+
+**Verification at baseline.** Here $\alpha = 0.4$, $p_1 = 2$, $p_2 = 3$, $m = 60$, $x_1^* = 12$.
+
+- Total effect: $-\alpha m / p_1^2 = -0.4 \cdot 60 / 4 = -6.0$.
+- Substitution: $-(1 - \alpha) \alpha m / p_1^2 = -0.6 \cdot 0.4 \cdot 60 / 4 = -3.6$.
+- Income: $- x_1^* \cdot \alpha / p_1 = -12 \cdot 0.4 / 2 = -2.4$.
+
+Sum of substitution and income effects: $-3.6 + (-2.4) = -6.0$, matching the total effect. The Slutsky decomposition holds.
+
+For Cobb-Douglas, the substitution effect is always $(1 - \alpha)$ of the total and the income effect is $\alpha$ of the total — a clean closed-form decomposition that almost no other utility function delivers.
+:::
+
+## References
+
+- Mas-Colell, Whinston, Green. *Microeconomic Theory*, Section 3.D.
+- Varian. *Microeconomic Analysis*, Chapter 7.
+- Jehle and Reny. *Advanced Microeconomic Theory*, Section 1.4 (Cobb-Douglas as a worked example throughout).

@@ -7,5 +7,5 @@ This section develops standard consumer theory from utility maximisation, with f
 ## Topics
 
 - [Perfect Substitutes](perfect-substitutes.qmd)
-- *Cobb–Douglas* (coming soon)
+- [Cobb–Douglas](cobb-douglas.qmd)
 - *Perfect Complements* (coming soon)

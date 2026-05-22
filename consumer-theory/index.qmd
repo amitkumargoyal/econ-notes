@@ -1,0 +1,11 @@
+---
+title: "Consumer Theory"
+---
+
+This section develops standard consumer theory from utility maximisation, with full derivations of demand functions and comparative statics.
+
+## Topics
+
+- *Perfect Substitutes* (coming soon)
+- *Cobb–Douglas* (coming soon)
+- *Perfect Complements* (coming soon)

@@ -1,0 +1,27 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Econ Notes"
+  description: "Microeconomics teaching notes — a companion to Econschool videos."
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: consumer-theory/index.qmd
+        text: Consumer Theory
+  page-footer:
+    center: |
+      [Amit Goyal](https://econschool.in) · <amit@econschool.in> · [econschool.in](https://econschool.in)
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    css: styles.css
+    html-math-method: mathjax
+
+execute:
+  freeze: auto

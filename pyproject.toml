@@ -9,3 +9,8 @@ dependencies = [
     "matplotlib>=3.10.9",
     "numpy>=2.4.6",
 ]
+
+[dependency-groups]
+dev = [
+    "pyyaml>=6.0.3",
+]

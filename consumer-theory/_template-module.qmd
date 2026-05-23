@@ -1,0 +1,231 @@
+---
+title: "<TODO: Module title, e.g. 'Cobb-Douglas'>"
+---
+
+<!--
+========================================================================
+  TEMPLATE for consumer-theory modules.
+
+  TO CREATE A NEW MODULE:
+    cp consumer-theory/_template-module.qmd consumer-theory/<slug>.qmd
+    Then edit. Replace every <TODO: ...> marker. Delete this comment block.
+
+  STRUCTURE (mirrors perfect-substitutes.qmd and cobb-douglas.qmd):
+    1. One-paragraph lede: setup + what the module derives + payoff
+    2. ## The model       -- Definition callout + problem statement
+    3. ## Solving the problem  -- Proposition + Proof sketch (collapsed)
+    4. ## Comparative statics  -- Bullets + Warning callout for traps
+    5. ## Worked example  -- Numerical pass with verified arithmetic
+    6. ## Figure          -- Code chunk producing brand-styled figure
+    7. ## Exercises       -- Three of rising difficulty; collapsible solutions
+    8. ## References      -- MWG, Varian, JR, paper sources as relevant
+
+  CROSS-REFERENCE CONVENTIONS:
+    Equations:   $$ ... $$ {#eq-<slug>}     referenced as @eq-<slug>
+    Sections:    ## Heading {#sec-<slug>}   referenced as @sec-<slug>
+    Figures:     #| label: fig-<slug>       referenced as @fig-<slug>
+
+  CALLOUT PATTERNS:
+    Definition       ::: {.callout-note title="Definition: ..."}
+    Proposition      ::: {.callout-important title="Proposition: ..."}
+    Proof sketch     ::: {.callout-tip title="Proof sketch" collapse="true"}
+    Warning          ::: {.callout-warning title="..."}
+    Exercise         ::: {.callout-note title="Exercise N" appearance="simple"}
+    Solution         ::: {.callout-tip title="Solution" collapse="true"}
+
+  WHEN TO DEVIATE FROM THE STRUCTURE ABOVE:
+    Firm rules (don't change without a strong reason):
+      - The eight section ordering. Readers learn to navigate the section
+        once and transfer to every module.
+      - The cross-reference labelling conventions. Internal links break
+        silently when labels drift.
+      - The callout types for Definition / Proposition / Proof sketch /
+        Warning / Exercise / Solution. The visual language is part of
+        the brand.
+    Advisory (deviate when the math wants it):
+      - Number of exercises. Three is the default; two suffices for a
+        short module, four is fine when the material warrants it.
+      - Number of figure panels. Match the structure of the result, not
+        the structure of other modules.
+      - Proof sketch length. Some results need three lines; some need a
+        page of algebra.
+    Genuinely module-specific (no template guidance):
+      - Choice of utility function, parameter values, and numerical
+        examples.
+      - Specific cross-references between modules. Add them when the
+        math invites them, omit them when it would be forced.
+
+  BEFORE COMMITTING:
+    1. grep '<TODO:' consumer-theory/<slug>.qmd  -- must return nothing.
+    2. quarto preview -- visually verify figure, callouts, references.
+    3. Click every collapsible (Proof sketch, each Solution).
+    4. Verify every numerical answer with a Python REPL.
+    5. Update consumer-theory/index.qmd to link the new module.
+
+  REMEMBER:
+    - Use raw strings for LaTeX in plot labels: r"$\alpha$".
+    - Brand colours below are duplicated from sibling modules. This is
+      acceptable until ~3 modules; then extract into econschool_plots (M7).
+========================================================================
+-->
+
+<TODO: One paragraph. State the choice problem, name the payoff of the module
+(the "headline insight" a student will take away), and set up notation. Mention
+how this case relates to neighbouring modules where relevant — e.g., "Unlike
+the perfect-substitutes case, ...".>
+
+## The model
+
+::: {.callout-note title="Definition: <TODO>"}
+<TODO: One-line characterisation of the preference family, followed by the
+utility function in display math.>
+$$
+u(x_1, x_2) = \ldots
+$$
+<TODO: One additional structural fact worth stating up-front — e.g., the MRS,
+strict quasi-concavity, the location of the optimum (interior vs corner).>
+:::
+
+The consumer's problem is
+$$
+\max_{x_1, x_2 \ge 0} \; u(x_1, x_2) \quad \text{s.t.} \quad p_1 x_1 + p_2 x_2 \le m,
+$$ {#eq-problem}
+with $p_1, p_2 > 0$ and $m > 0$.
+
+<TODO: One paragraph explaining which solution technique applies and why —
+Lagrangian, corner-by-comparison, dual, etc. — and what to expect (unique
+interior optimum, corner, correspondence, ...).>
+
+## Solving the problem
+
+<TODO: Set up the solution. State the relevant first-order or comparison
+condition.>
+
+::: {.callout-important title="Proposition: <TODO, e.g. Marshallian demand>"}
+<TODO: State the result. Always label the demand equation.>
+$$
+x_1^*(p_1, p_2, m) = \ldots, \qquad x_2^*(p_1, p_2, m) = \ldots
+$$ {#eq-demand}
+:::
+
+::: {.callout-tip title="Proof sketch" collapse="true"}
+<TODO: Two to four paragraphs. Show the key algebra. Don't write a full
+rigorous proof — name the technique and let the algebra speak.>
+:::
+
+<TODO: Any direct corollaries worth stating inline before moving on. Label
+them if the figure or exercises will reference them.>
+
+## Comparative statics
+
+Equation @eq-demand makes the comparative statics immediate.
+
+<TODO: Three to five short paragraphs or bullets. Each one isolates one
+partial derivative or elasticity. Use log-derivatives when the demand is
+multiplicative. Always state the *sign* and the *interpretation*, not just
+the formula.>
+
+::: {.callout-warning title="<TODO: name the trap>"}
+<TODO: Identify one common misgeneralisation students make about this case.
+Pair this Warning with one of the exercises below so the warning isn't just
+abstract advice.>
+:::
+
+## Worked example
+
+Take <TODO: parameter values, e.g. $\alpha = 0.4$, $p_1 = 2$, $p_2 = 3$,
+$m = 60$>.
+
+<TODO: Compute the demand, indirect utility, expenditure shares, or whatever
+the headline objects of the module are. Verify all arithmetic in a Python REPL
+before committing — wrong numerical examples poison the rest of the module.
+
+If a comparative-statics demonstration is helpful, add a "now raise $p_1$
+from X to Y" pass and show which numbers move and which don't. The CD module
+does this and it's high-leverage.>
+
+The geometry is in @sec-figure.
+
+## Figure {#sec-figure}
+
+```{python}
+#| label: fig-<TODO-slug>
+#| fig-cap: "<TODO: one-sentence caption. Name the parameter values. State what each panel shows. Include LaTeX in the caption where useful — escape backslashes (\\\\alpha) inside the fig-cap string.>"
+#| fig-width: 10
+#| fig-height: <TODO: 3.5 for one row, 4 for two-panel, 4.5 if dense>
+#| echo: false
+
+from dataclasses import dataclass
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Brand palette (Econschool style guide).
+# Duplicated across modules; refactor target is econschool_plots (M7).
+VIOLET = "#5A1BA6"
+TERRACOTTA = "#A03A2C"
+SAGE = "#B8C5B5"
+CREAM = "#FAF7F2"
+INK = "#1F1F1F"
+
+
+@dataclass(frozen=True)
+class Params:
+    """<TODO: docstring naming the utility function and parameters.>"""
+    # TODO: fields for parameters and prices/income
+
+
+# TODO: plot functions. One per panel if panels are structurally different.
+# Signature convention: plot_<panel_name>(ax: plt.Axes, p: Params) -> None.
+# Each function configures its own axes (labels, title, spines, aspect).
+
+
+plt.rcParams.update({
+    "text.usetex": False,  # mathtext suffices; usetex is slow in CI
+    "font.family": "serif",
+    "axes.facecolor": CREAM,
+    "figure.facecolor": CREAM,
+    "axes.edgecolor": INK,
+    "axes.labelcolor": INK,
+    "xtick.color": INK,
+    "ytick.color": INK,
+})
+
+# TODO: instantiate Params, build figure with plt.subplots(...),
+# call plot functions, fig.tight_layout(), plt.show()
+```
+
+## Exercises
+
+::: {.callout-note title="Exercise 1" appearance="simple"}
+<TODO: Mechanical. Plug numbers into the result of the module. The student
+should be able to do this immediately after reading the Proposition.>
+:::
+
+::: {.callout-tip title="Solution" collapse="true"}
+<TODO: Show the arithmetic. Reference @eq-demand or other labelled results
+so the solution links back to the result it applies.>
+:::
+
+::: {.callout-note title="Exercise 2" appearance="simple"}
+<TODO: Conceptual or comparative. Often the right exercise to pair with the
+Warning callout — force the student to confront the misgeneralisation
+explicitly by working an example where the warned-against property fails.>
+:::
+
+::: {.callout-tip title="Solution" collapse="true"}
+<TODO>
+:::
+
+::: {.callout-note title="Exercise 3" appearance="simple"}
+<TODO: Extension. Push into duality, indirect utility, expenditure functions,
+or comparative-statics objects (Slutsky decomposition, elasticities, offer
+curves) that build on the headline result rather than re-using it.>
+:::
+
+::: {.callout-tip title="Solution" collapse="true"}
+<TODO>
+:::
+
+## References
+
+- <TODO: MWG section, Varian chapter, JR section, etc. Keep to 2–4 sources.>

@@ -11,7 +11,7 @@
     "href": "consumer-theory/perfect-substitutes.html#the-model",
     "title": "Perfect Substitutes",
     "section": "The model",
-    "text": "The model\n\n\n\n\n\n\nNoteDefinition: Perfect-substitutes utility\n\n\n\nGoods \\(1\\) and \\(2\\) are perfect substitutes if preferences are represented by \\[\nu(x_1, x_2) = a x_1 + b x_2, \\qquad a, b &gt; 0.\n\\] The marginal rate of substitution is constant and equal to \\(a/b\\).\n\n\nThe consumer’s problem is \\[\n\\max_{x_1, x_2 \\ge 0} \\; a x_1 + b x_2 \\quad \\text{s.t.} \\quad p_1 x_1 + p_2 x_2 \\le m,\n\\tag{1}\\] with \\(p_1, p_2 &gt; 0\\) and \\(m &gt; 0\\).\nBecause the objective is linear in \\((x_1, x_2)\\), indifference curves are straight lines with slope \\(-a/b\\). The budget line has slope \\(-p_1/p_2\\). The solution depends entirely on which slope is steeper."
+    "text": "The model\n\n\n\n\n\n\nNoteDefinition: Perfect-substitutes utility\n\n\n\nGoods \\(1\\) and \\(2\\) are perfect substitutes if preferences are represented by \\[\nu(x_1, x_2) = a x_1 + b x_2, \\qquad a, b &gt; 0.\n\\] The marginal rate of substitution is constant and equal to \\(a/b\\).\n\n\nThe consumer’s problem is \\[\n\\max_{(x_1, x_2) \\in \\mathbb{R}^2_+} \\; a x_1 + b x_2 \\quad \\text{s.t.} \\quad p_1 x_1 + p_2 x_2 \\le m,\n\\tag{1}\\] with \\(p_1, p_2 &gt; 0\\) and \\(m &gt; 0\\).\nBecause the objective is linear in \\((x_1, x_2)\\), indifference curves are straight lines with slope \\(-a/b\\). The budget line has slope \\(-p_1/p_2\\). The solution depends entirely on which slope is steeper."
   },
   {
     "objectID": "consumer-theory/perfect-substitutes.html#solving-the-problem",
@@ -47,13 +47,6 @@
     "title": "Perfect Substitutes",
     "section": "Exercises",
     "text": "Exercises\n\n\n\n\n\n\nNoteExercise 1\n\n\n\nShow that if \\(a = b\\) and \\(p_1 = p_2\\), then every bundle on the budget line yields the same utility. What is that utility as a function of \\(m\\) and \\(p_1\\)?\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nWith \\(a = b\\) and \\(p_1 = p_2 \\equiv p\\), the marginal-utility-per-rupee ratio is \\(a/p\\) on both goods, so the consumer is indifferent across the budget line. For any feasible \\((x_1, x_2)\\) with \\(p x_1 + p x_2 = m\\), we have \\(x_1 + x_2 = m/p\\) and so \\(u = a(x_1 + x_2) = a m / p\\).\n\n\n\n\n\n\n\n\n\nNoteExercise 2\n\n\n\nSuppose \\(a = 3\\), \\(b = 2\\), \\(m = 60\\). Derive the indirect utility function \\(v(p_1, p_2, m)\\). Verify it is homogeneous of degree zero in \\((p_1, p_2, m)\\) and decreasing in each price.\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nThe optimum is at one of the two corners. Direct computation gives \\[\nv(p_1, p_2, m) = \\max\\left\\{ \\frac{a m}{p_1},\\; \\frac{b m}{p_2} \\right\\} = m \\cdot \\max\\left\\{ \\frac{a}{p_1},\\; \\frac{b}{p_2} \\right\\}.\n\\] Homogeneity of degree zero: scaling \\((p_1, p_2, m)\\) by \\(\\lambda &gt; 0\\) leaves \\(v\\) unchanged. Monotonicity: raising \\(p_1\\) (weakly) decreases the first ratio, hence \\(v\\) is weakly decreasing in \\(p_1\\) (strictly, if \\(a/p_1 &gt; b/p_2\\)).\n\n\n\n\n\n\n\n\n\nNoteExercise 3\n\n\n\nSketch the price-offer curve in \\((x_1, x_2)\\)-space as \\(p_1\\) varies from \\(0\\) to \\(\\infty\\) with \\(p_2 = 1\\) and \\(m = 100\\). Where are its endpoints? Does it pass through the interior of the budget set?\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nAs \\(p_1 \\downarrow 0\\), \\(X^*(p_1, 1, 100) = \\{(m/p_1, 0)\\}\\) with \\(m/p_1 \\to \\infty\\), so the curve runs out along the \\(x_1\\)-axis. As \\(p_1\\) crosses \\(\\overline{p_1} = ap_2/b = 2\\), the consumer jumps from \\((50, 0)\\) to \\((0, 100)\\), and at exactly \\(p_1 = 2\\) the entire budget line is optimal. For \\(p_1 &gt; 2\\) the consumer stays at \\((0, 100)\\). The price-offer curve is therefore the \\(x_1\\)-axis segment from \\((50, 0)\\) outward to \\(\\infty\\), plus the budget line at \\(p_1 = 2\\) from \\((50, 0)\\) to \\((0, 100)\\), plus the single point \\((0, 100)\\). It does not pass through the strict interior of any budget set."
-  },
-  {
-    "objectID": "consumer-theory/perfect-substitutes.html#references",
-    "href": "consumer-theory/perfect-substitutes.html#references",
-    "title": "Perfect Substitutes",
-    "section": "References",
-    "text": "References\n\nMas-Colell, Whinston, Green. Microeconomic Theory, Section 3.D.\nVarian. Microeconomic Analysis, Chapter 7."
   },
   {
     "objectID": "consumer-theory/cobb-douglas.html",
@@ -105,11 +98,25 @@
     "text": "Exercises\n\n\n\n\n\n\nNoteExercise 1\n\n\n\nLet \\(\\alpha = 1/3\\), \\(p_1 = 4\\), \\(p_2 = 2\\), \\(m = 120\\). Compute the Marshallian demand \\((x_1^*, x_2^*)\\) and the indirect utility \\(v(p_1, p_2, m)\\). Verify that the expenditure shares are \\(1/3\\) and \\(2/3\\).\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nBy Equation 2, \\[\nx_1^* = \\frac{\\alpha m}{p_1} = \\frac{(1/3) \\cdot 120}{4} = 10, \\qquad\nx_2^* = \\frac{(1 - \\alpha) m}{p_2} = \\frac{(2/3) \\cdot 120}{2} = 40.\n\\] Expenditure: \\(p_1 x_1^* = 40 = (1/3) \\cdot 120\\) and \\(p_2 x_2^* = 80 = (2/3) \\cdot 120\\), so shares are \\(1/3\\) and \\(2/3\\) as predicted by Equation 4.\nBy Equation 3, \\[\nv = (1/3)^{1/3} (2/3)^{2/3} \\cdot \\frac{120}{4^{1/3} \\cdot 2^{2/3}}\n  = (1/3)^{1/3} (2/3)^{2/3} \\cdot \\frac{120}{2^{4/3}}\n\\] which simplifies to \\(v \\approx 0.5291 \\cdot 47.622 \\approx 25.20\\).\n\n\n\n\n\n\n\n\n\nNoteExercise 2\n\n\n\nProve that the expenditure share on good 1 is \\(\\alpha\\) for all \\((p_1, p_2, m) \\in \\mathbb{R}^3_{++}\\). Then show that this property fails for quasi-linear preferences \\(u(x_1, x_2) = \\log x_1 + x_2\\): derive the demand for good 1 and the expenditure share, and explain why the share moves with \\((p_2, m)\\).\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nCobb-Douglas. From Equation 2, \\(p_1 x_1^* = p_1 \\cdot \\alpha m / p_1 = \\alpha m\\), so \\(s_1 = p_1 x_1^* / m = \\alpha\\). No dependence on \\((p_1, p_2, m)\\).\nQuasi-linear. With \\(u = \\log x_1 + x_2\\), the FOC for an interior optimum is \\(1/x_1 = p_1/p_2\\), giving \\(x_1^* = p_2/p_1\\) as a candidate. This is the actual interior solution when income is sufficient to afford it with \\(x_2^* \\ge 0\\) — i.e., \\(m \\ge p_2\\). (If \\(m &lt; p_2\\) the consumer corner-solves at \\(x_2 = 0\\).) For \\(m \\ge p_2\\), expenditure on good 1 is \\(p_1 x_1^* = p_2\\), and the share is \\[\ns_1 = \\frac{p_2}{m},\n\\] which falls as income rises (good 1 is a necessity in the quasi-linear sense) and rises with \\(p_2\\).\n\n\n\n\n\n\n\n\n\nNoteExercise 3\n\n\n\nThe constant elasticity of substitution (CES) utility function with parameter \\(\\rho \\in (-\\infty, 1) \\setminus \\{0\\}\\) is \\[\nu_{\\rho}(x_1, x_2) = \\bigl(\\alpha \\, x_1^{\\rho} + (1 - \\alpha) \\, x_2^{\\rho}\\bigr)^{1/\\rho},\n\\] with elasticity of substitution \\(\\sigma = 1/(1 - \\rho)\\).\nTake logs of \\(u_{\\rho}\\) and show, using L’Hôpital’s rule, that as \\(\\rho \\to 0\\), \\[\n\\log u_{\\rho}(x_1, x_2) \\;\\longrightarrow\\; \\alpha \\log x_1 + (1 - \\alpha) \\log x_2.\n\\]\nConclude that, in the \\(\\rho \\to 0\\) limit (equivalently \\(\\sigma \\to 1\\)), CES preferences agree with Cobb-Douglas preferences up to the monotone transformation \\(\\log\\). This is the precise sense in which Cobb-Douglas is the knife-edge \\(\\sigma = 1\\) of the CES family flagged in the Warning above.\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nTaking logs of \\(u_{\\rho}\\): \\[\n\\log u_{\\rho}(x_1, x_2) = \\frac{1}{\\rho} \\, \\log\\bigl(\\alpha \\, x_1^{\\rho} + (1 - \\alpha) \\, x_2^{\\rho}\\bigr).\n\\] As \\(\\rho \\to 0\\), both numerator and denominator (of \\(\\log(\\cdot) / \\rho\\)) tend to \\(0\\) — the numerator because \\(\\alpha + (1 - \\alpha) = 1\\) and \\(\\log 1 = 0\\). Apply L’Hôpital’s rule, differentiating in \\(\\rho\\): \\[\n\\frac{d}{d\\rho} \\log\\bigl(\\alpha x_1^{\\rho} + (1 - \\alpha) x_2^{\\rho}\\bigr)\n= \\frac{\\alpha x_1^{\\rho} \\log x_1 + (1 - \\alpha) x_2^{\\rho} \\log x_2}{\\alpha x_1^{\\rho} + (1 - \\alpha) x_2^{\\rho}},\n\\] which as \\(\\rho \\to 0\\) converges to \\[\n\\frac{\\alpha \\log x_1 + (1 - \\alpha) \\log x_2}{\\alpha + (1 - \\alpha)} = \\alpha \\log x_1 + (1 - \\alpha) \\log x_2.\n\\] Hence \\(\\log u_{\\rho} \\to \\alpha \\log x_1 + (1 - \\alpha) \\log x_2 = \\log\\bigl(x_1^{\\alpha} x_2^{1 - \\alpha}\\bigr)\\), which is a monotone transformation of Cobb-Douglas utility. Since preferences are invariant to monotone transformations of utility, the limiting preferences are Cobb-Douglas.\nThe CES family interpolates between Leontief (perfect complements, \\(\\sigma \\to 0\\), \\(\\rho \\to -\\infty\\)), Cobb-Douglas (\\(\\sigma = 1\\), \\(\\rho \\to 0\\)), and Perfect Substitutes (\\(\\sigma \\to \\infty\\), \\(\\rho = 1\\)). Cobb-Douglas sits at the centre. The constancy of expenditure shares fails on either side of \\(\\sigma = 1\\)."
   },
   {
-    "objectID": "consumer-theory/cobb-douglas.html#references",
-    "href": "consumer-theory/cobb-douglas.html#references",
-    "title": "Cobb-Douglas",
-    "section": "References",
-    "text": "References\n\nMas-Colell, Whinston, Green. Microeconomic Theory, Section 3.D.\nVarian. Microeconomic Analysis, Chapter 7.\nJehle and Reny. Advanced Microeconomic Theory, Section 1.4 (Cobb-Douglas as a worked example throughout)."
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "These notes draw throughout on the following textbooks. Specific section pointers are not given per-module — these books are the substrate for consumer theory, game theory, and general equilibrium as developed here, and serious students should expect to read them alongside."
+  },
+  {
+    "objectID": "references.html#microeconomic-theory",
+    "href": "references.html#microeconomic-theory",
+    "title": "References",
+    "section": "Microeconomic theory",
+    "text": "Microeconomic theory\n\nMas-Colell, Andreu, Michael D. Whinston, and Jerry R. Green. Microeconomic Theory. Oxford University Press, 1995.\nVarian, Hal R. Microeconomic Analysis. 3rd ed. W. W. Norton, 1992.\nJehle, Geoffrey A., and Philip J. Reny. Advanced Microeconomic Theory. 3rd ed. Pearson, 2011."
+  },
+  {
+    "objectID": "references.html#use",
+    "href": "references.html#use",
+    "title": "References",
+    "section": "Use",
+    "text": "Use\nThese notes are not a substitute for the books. They are a companion — full derivations of the standard results, in a consistent notation, designed to be read alongside the books or after a first pass through them. Where a particular module follows a specific exposition closely, that will be noted in the module itself."
   },
   {
     "objectID": "index.html",

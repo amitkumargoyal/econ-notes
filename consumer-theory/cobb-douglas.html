@@ -180,7 +180,7 @@ window.Quarto = {
 </header>
 
 
-<p>A consumer chooses a bundle <span class="math inline">\((x_1, x_2) \in \mathbb{R}^2_{+}\)</span> of two goods to maximise utility subject to a budget constraint. <strong>Cobb-Douglas preferences</strong> are the workhorse interior-solution case: smooth indifference curves, a unique tangency, and demands that are linear in income and unit-elastic in own price. The defining oddity — and the pedagogical payoff of this module — is that the <em>expenditure share</em> on each good is constant across all prices and incomes. This module derives Marshallian demand, traces the comparative statics, and works through one numerical example.</p>
+<p>A consumer chooses a bundle <span class="math inline">\((x_1, x_2) \in \mathbb{R}^2_{+}\)</span> of two goods to maximise utility subject to a budget constraint. <strong>Cobb-Douglas preferences</strong> are the workhorse interior-solution case: smooth indifference curves, a unique tangency, and demands that are linear in income and unit-elastic in own price. This module derives Marshallian demand, traces the comparative statics, and works through one numerical example.</p>
 <section id="the-model" class="level2">
 <h2 class="anchored" data-anchor-id="the-model">The model</h2>
 <div class="callout callout-style-default callout-note callout-titled" title="Definition: Cobb-Douglas utility">
@@ -277,7 +277,7 @@ s_1 = \frac{p_1 x_1^*}{m} = \alpha,
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The constancy of expenditure shares is a <em>special</em> feature of Cobb-Douglas, not a general property of well-behaved preferences. The CES family with elasticity of substitution <span class="math inline">\(\sigma \ne 1\)</span> produces shares that vary with the price ratio (rising in <span class="math inline">\(p_1\)</span> if <span class="math inline">\(\sigma &lt; 1\)</span>, falling if <span class="math inline">\(\sigma &gt; 1\)</span>). Cobb-Douglas is the <span class="math inline">\(\sigma = 1\)</span> knife-edge. Students who internalise “shares are constant” as a general rule will get the wrong answer the first time they see CES.</p>
+<p>The constancy of expenditure shares is a <em>special</em> feature of Cobb-Douglas, not a general property of well-behaved preferences. The CES family with elasticity of substitution <span class="math inline">\(\sigma \ne 1\)</span> produces shares that vary with the price ratio. Cobb-Douglas is the <span class="math inline">\(\sigma = 1\)</span> knife-edge.</p>
 </div>
 </div>
 </section>
@@ -291,7 +291,7 @@ x_2^* = \frac{0.6 \times 60}{3} = 12.
 <p>Expenditure on each good: <span class="math display">\[
 p_1 x_1^* = 24 = 0.4 \times 60, \qquad p_2 x_2^* = 36 = 0.6 \times 60.
 \]</span></p>
-<p>Indirect utility: <span class="math display">\[v = 0.4^{0.4} \cdot 0.6^{0.6} \cdot \frac{60}{2^{0.4} \, 3^{0.6}} \approx 0.5101 \cdot \frac{60}{2.5510} \approx 12.00.\]</span></p>
+<p>Indirect utility: Direct from <a href="#eq-indirect" class="quarto-xref">Equation&nbsp;3</a>, <span class="math inline">\(v = 0.4^{0.4} \cdot 0.6^{0.6} \cdot 60 / (2^{0.4} \cdot 3^{0.6})=12\)</span>. Or equivalently, since the optimum is <span class="math inline">\((12, 12)\)</span>: <span class="math inline">\(v = u(12, 12) = 12^{0.4} \cdot 12^{0.6} = 12\)</span>.</p>
 <p>Now raise <span class="math inline">\(p_1\)</span> from <span class="math inline">\(2\)</span> to <span class="math inline">\(4\)</span>, holding everything else fixed: <span class="math display">\[
 x_1^* = \frac{0.4 \times 60}{4} = 6, \qquad x_2^* = 12 \text{ (unchanged)}.
 \]</span></p>
@@ -379,9 +379,9 @@ v = (1/3)^{1/3} (2/3)^{2/3} \cdot \frac{120}{4^{1/3} \cdot 2^{2/3}}
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Cobb-Douglas.</strong> From <a href="#eq-demand" class="quarto-xref">Equation&nbsp;2</a>, <span class="math inline">\(p_1 x_1^* = p_1 \cdot \alpha m / p_1 = \alpha m\)</span>, so <span class="math inline">\(s_1 = p_1 x_1^* / m = \alpha\)</span>. No dependence on <span class="math inline">\((p_1, p_2, m)\)</span>.</p>
-<p><strong>Quasi-linear.</strong> With <span class="math inline">\(u = \log x_1 + x_2\)</span>, the tangency condition is <span class="math inline">\(1 / x_1 = p_1 / p_2\)</span>, giving <span class="math inline">\(x_1^* = p_2 / p_1\)</span> as long as <span class="math inline">\(m \ge p_2\)</span> (so <span class="math inline">\(x_2^* \ge 0\)</span>). Expenditure on good 1 is <span class="math inline">\(p_1 x_1^* = p_2\)</span>, a constant in <em>currency</em>, not a share. The share is <span class="math display">\[
+<p><strong>Quasi-linear.</strong> With <span class="math inline">\(u = \log x_1 + x_2\)</span>, the FOC for an interior optimum is <span class="math inline">\(1/x_1 = p_1/p_2\)</span>, giving <span class="math inline">\(x_1^* = p_2/p_1\)</span> as a candidate. This is the actual interior solution when income is sufficient to afford it with <span class="math inline">\(x_2^* \ge 0\)</span> — i.e., <span class="math inline">\(m \ge p_2\)</span>. (If <span class="math inline">\(m &lt; p_2\)</span> the consumer corner-solves at <span class="math inline">\(x_2 = 0\)</span>.) For <span class="math inline">\(m \ge p_2\)</span>, expenditure on good 1 is <span class="math inline">\(p_1 x_1^* = p_2\)</span>, and the share is <span class="math display">\[
 s_1 = \frac{p_2}{m},
-\]</span> which falls as income rises (good 1 is a necessity in the quasi-linear sense) and rises with <span class="math inline">\(p_2\)</span>. Constant <em>share</em> is special to CD; constant <em>expenditure</em> is the analogous property of quasi-linear preferences. Different invariants for different utility families — easy to conflate.</p>
+\]</span> which falls as income rises (good 1 is a necessity in the quasi-linear sense) and rises with <span class="math inline">\(p_2\)</span>.</p>
 </div>
 </div>
 </div>

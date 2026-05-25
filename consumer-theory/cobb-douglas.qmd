@@ -2,7 +2,7 @@
 title: "Cobb-Douglas"
 ---
 
-A consumer chooses a bundle $(x_1, x_2) \in \mathbb{R}^2_{+}$ of two goods to maximise utility subject to a budget constraint. **Cobb-Douglas preferences** are the workhorse interior-solution case: smooth indifference curves, a unique tangency, and demands that are linear in income and unit-elastic in own price. The defining oddity — and the pedagogical payoff of this module — is that the *expenditure share* on each good is constant across all prices and incomes. This module derives Marshallian demand, traces the comparative statics, and works through one numerical example.
+A consumer chooses a bundle $(x_1, x_2) \in \mathbb{R}^2_{+}$ of two goods to maximise utility subject to a budget constraint. **Cobb-Douglas preferences** are the workhorse interior-solution case: smooth indifference curves, a unique tangency, and demands that are linear in income and unit-elastic in own price. This module derives Marshallian demand, traces the comparative statics, and works through one numerical example.
 
 ## The model
 
@@ -86,7 +86,7 @@ $$
 independent of $(p_1, p_2, m)$. This is the right-panel picture in @sec-figure.
 
 ::: {.callout-warning title="A knife-edge property"}
-The constancy of expenditure shares is a *special* feature of Cobb-Douglas, not a general property of well-behaved preferences. The CES family with elasticity of substitution $\sigma \ne 1$ produces shares that vary with the price ratio (rising in $p_1$ if $\sigma < 1$, falling if $\sigma > 1$). Cobb-Douglas is the $\sigma = 1$ knife-edge. Students who internalise "shares are constant" as a general rule will get the wrong answer the first time they see CES.
+The constancy of expenditure shares is a *special* feature of Cobb-Douglas, not a general property of well-behaved preferences. The CES family with elasticity of substitution $\sigma \ne 1$ produces shares that vary with the price ratio. Cobb-Douglas is the $\sigma = 1$ knife-edge. 
 :::
 
 ## Worked example
@@ -105,7 +105,7 @@ p_1 x_1^* = 24 = 0.4 \times 60, \qquad p_2 x_2^* = 36 = 0.6 \times 60.
 $$
 
 Indirect utility:
-$$v = 0.4^{0.4} \cdot 0.6^{0.6} \cdot \frac{60}{2^{0.4} \, 3^{0.6}} \approx 0.5101 \cdot \frac{60}{2.5510} \approx 12.00.$$
+Direct from @eq-indirect, $v = 0.4^{0.4} \cdot 0.6^{0.6} \cdot 60 / (2^{0.4} \cdot 3^{0.6})=12$. Or equivalently, since the optimum is $(12, 12)$: $v = u(12, 12) = 12^{0.4} \cdot 12^{0.6} = 12$.
 
 
 Now raise $p_1$ from $2$ to $4$, holding everything else fixed:
@@ -269,12 +269,13 @@ Prove that the expenditure share on good 1 is $\alpha$ for *all* $(p_1, p_2, m) 
 ::: {.callout-tip title="Solution" collapse="true"}
 **Cobb-Douglas.** From @eq-demand, $p_1 x_1^* = p_1 \cdot \alpha m / p_1 = \alpha m$, so $s_1 = p_1 x_1^* / m = \alpha$. No dependence on $(p_1, p_2, m)$.
 
-**Quasi-linear.** With $u = \log x_1 + x_2$, the tangency condition is $1 / x_1 = p_1 / p_2$, giving $x_1^* = p_2 / p_1$ as long as $m \ge p_2$ (so $x_2^* \ge 0$). Expenditure on good 1 is $p_1 x_1^* = p_2$, a constant in *currency*, not a share. The share is
+**Quasi-linear.** With $u = \log x_1 + x_2$, the FOC for an interior optimum is $1/x_1 = p_1/p_2$, giving $x_1^* = p_2/p_1$ as a candidate. This is the actual interior solution when income is sufficient to afford it with $x_2^* \ge 0$ — i.e., $m \ge p_2$. (If $m < p_2$ the consumer corner-solves at $x_2 = 0$.) For $m \ge p_2$, expenditure on good 1 is $p_1 x_1^* = p_2$, and the share is
 $$
 s_1 = \frac{p_2}{m},
 $$
-which falls as income rises (good 1 is a necessity in the quasi-linear sense) and rises with $p_2$. Constant *share* is special to CD; constant *expenditure* is the analogous property of quasi-linear preferences. Different invariants for different utility families — easy to conflate.
+which falls as income rises (good 1 is a necessity in the quasi-linear sense) and rises with $p_2$. 
 :::
+
 
 ::: {.callout-note title="Exercise 3" appearance="simple"}
 The constant elasticity of substitution (CES) utility function with parameter $\rho \in (-\infty, 1) \setminus \{0\}$ is

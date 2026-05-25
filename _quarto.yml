@@ -11,6 +11,8 @@ website:
         text: Home
       - href: consumer-theory/index.qmd
         text: Consumer Theory
+      - href: references.qmd
+        text: References
   page-footer:
     center: |
       [Amit Goyal](https://econschool.in) · <amit@econschool.in> · [econschool.in](https://econschool.in)

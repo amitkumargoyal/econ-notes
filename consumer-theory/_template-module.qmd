@@ -18,7 +18,10 @@ title: "<TODO: Module title, e.g. 'Cobb-Douglas'>"
     5. ## Worked example  -- Numerical pass with verified arithmetic
     6. ## Figure          -- Code chunk producing brand-styled figure
     7. ## Exercises       -- Three of rising difficulty; collapsible solutions
-    8. ## References      -- MWG, Varian, JR, paper sources as relevant
+
+    Global references live in references.qmd (linked from navbar).
+    If a module follows a specific paper or exposition closely, add an
+    inline citation rather than a per-module References section.
 
   CROSS-REFERENCE CONVENTIONS:
     Equations:   $$ ... $$ {#eq-<slug>}     referenced as @eq-<slug>
@@ -48,7 +51,7 @@ title: "<TODO: Module title, e.g. 'Cobb-Douglas'>"
 
   WHEN TO DEVIATE FROM THE STRUCTURE ABOVE:
     Firm rules (don't change without a strong reason):
-      - The eight section ordering. Readers learn to navigate the section
+      - The seven section ordering. Readers learn to navigate the section
         once and transfer to every module.
       - The cross-reference labelling conventions. Internal links break
         silently when labels drift.
@@ -250,6 +253,3 @@ see the Firm rules above.>
 <TODO>
 :::
 
-## References
-
-- <TODO: MWG section, Varian chapter, JR section, etc. Keep to 2–4 sources.>

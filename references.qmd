@@ -1,0 +1,15 @@
+---
+title: "References"
+---
+
+These notes draw throughout on the following textbooks. Specific section pointers are not given per-module — these books are the substrate for consumer theory, game theory, and general equilibrium as developed here, and serious students should expect to read them alongside.
+
+## Microeconomic theory
+
+- Mas-Colell, Andreu, Michael D. Whinston, and Jerry R. Green. *Microeconomic Theory*. Oxford University Press, 1995.
+- Varian, Hal R. *Microeconomic Analysis*. 3rd ed. W. W. Norton, 1992.
+- Jehle, Geoffrey A., and Philip J. Reny. *Advanced Microeconomic Theory*. 3rd ed. Pearson, 2011.
+
+## Use
+
+These notes are not a substitute for the books. They are a *companion* — full derivations of the standard results, in a consistent notation, designed to be read alongside the books or after a first pass through them. Where a particular module follows a specific exposition closely, that will be noted in the module itself.

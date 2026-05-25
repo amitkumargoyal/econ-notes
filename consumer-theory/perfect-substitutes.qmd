@@ -16,7 +16,7 @@ The marginal rate of substitution is constant and equal to $a/b$.
 
 The consumer's problem is
 $$
-\max_{x_1, x_2 \ge 0} \; a x_1 + b x_2 \quad \text{s.t.} \quad p_1 x_1 + p_2 x_2 \le m,
+\max_{(x_1, x_2) \in \mathbb{R}^2_+} \; a x_1 + b x_2 \quad \text{s.t.} \quad p_1 x_1 + p_2 x_2 \le m,
 $$ {#eq-problem}
 with $p_1, p_2 > 0$ and $m > 0$.
 
@@ -242,7 +242,4 @@ Sketch the price-offer curve in $(x_1, x_2)$-space as $p_1$ varies from $0$ to $
 As $p_1 \downarrow 0$, $X^*(p_1, 1, 100) = \{(m/p_1, 0)\}$ with $m/p_1 \to \infty$, so the curve runs out along the $x_1$-axis. As $p_1$ crosses $\overline{p_1} = ap_2/b = 2$, the consumer jumps from $(50, 0)$ to $(0, 100)$, and at exactly $p_1 = 2$ the *entire* budget line is optimal. For $p_1 > 2$ the consumer stays at $(0, 100)$. The price-offer curve is therefore the $x_1$-axis segment from $(50, 0)$ outward to $\infty$, plus the budget line at $p_1 = 2$ from $(50, 0)$ to $(0, 100)$, plus the single point $(0, 100)$. It does not pass through the strict interior of any budget set.
 :::
 
-## References
 
-- Mas-Colell, Whinston, Green. *Microeconomic Theory*, Section 3.D.
-- Varian. *Microeconomic Analysis*, Chapter 7.

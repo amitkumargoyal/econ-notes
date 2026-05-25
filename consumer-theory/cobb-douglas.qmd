@@ -311,8 +311,3 @@ Hence $\log u_{\rho} \to \alpha \log x_1 + (1 - \alpha) \log x_2 = \log\bigl(x_1
 The CES family interpolates between Leontief (perfect complements, $\sigma \to 0$, $\rho \to -\infty$), Cobb-Douglas ($\sigma = 1$, $\rho \to 0$), and Perfect Substitutes ($\sigma \to \infty$, $\rho = 1$). Cobb-Douglas sits at the centre. The constancy of expenditure shares fails on either side of $\sigma = 1$.
 :::
 
-## References
-
-- Mas-Colell, Whinston, Green. *Microeconomic Theory*, Section 3.D.
-- Varian. *Microeconomic Analysis*, Chapter 7.
-- Jehle and Reny. *Advanced Microeconomic Theory*, Section 1.4 (Cobb-Douglas as a worked example throughout).

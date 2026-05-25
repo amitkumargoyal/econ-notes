@@ -180,7 +180,7 @@ window.Quarto = {
 </header>
 
 
-<p>A consumer chooses a bundle <span class="math inline">\((x_1, x_2) \in \mathbb{R}^2_{++}\)</span> of two goods to maximise utility subject to a budget constraint. <strong>Cobb-Douglas preferences</strong> are the workhorse interior-solution case: smooth indifference curves, a unique tangency, and demands that are linear in income and unit-elastic in own price. The defining oddity — and the pedagogical payoff of this module — is that the <em>expenditure share</em> on each good is constant across all prices and incomes. This module derives Marshallian demand, traces the comparative statics, and works through one numerical example.</p>
+<p>A consumer chooses a bundle <span class="math inline">\((x_1, x_2) \in \mathbb{R}^2_{+}\)</span> of two goods to maximise utility subject to a budget constraint. <strong>Cobb-Douglas preferences</strong> are the workhorse interior-solution case: smooth indifference curves, a unique tangency, and demands that are linear in income and unit-elastic in own price. The defining oddity — and the pedagogical payoff of this module — is that the <em>expenditure share</em> on each good is constant across all prices and incomes. This module derives Marshallian demand, traces the comparative statics, and works through one numerical example.</p>
 <section id="the-model" class="level2">
 <h2 class="anchored" data-anchor-id="the-model">The model</h2>
 <div class="callout callout-style-default callout-note callout-titled" title="Definition: Cobb-Douglas utility">
@@ -199,9 +199,9 @@ u(x_1, x_2) = x_1^{\alpha} \, x_2^{1 - \alpha}, \qquad \alpha \in (0, 1).
 </div>
 </div>
 <p>The consumer’s problem is <span id="eq-problem"><span class="math display">\[
-\max_{x_1, x_2 &gt; 0} \; x_1^{\alpha} x_2^{1 - \alpha} \quad \text{s.t.} \quad p_1 x_1 + p_2 x_2 \le m,
+\max_{(x_1, x_2) \in \mathbb{R}^2_{+}} \; x_1^{\alpha} x_2^{1 - \alpha} \quad \text{s.t.} \quad p_1 x_1 + p_2 x_2 \le m,
 \tag{1}\]</span></span> with <span class="math inline">\(p_1, p_2 &gt; 0\)</span> and <span class="math inline">\(m &gt; 0\)</span>.</p>
-<p>Unlike the perfect-substitutes case, the objective is strictly quasi-concave and the indifference curves are strictly convex, so the solution is unique and interior (no corner solutions, no demand correspondences). The Lagrangian works cleanly here.</p>
+<p>Unlike the perfect-substitutes case, the indifference curves are strictly convex, so any optimum is unique. The Inada conditions <span class="math inline">\(\lim_{x_i \to 0} \partial u / \partial x_i = \infty\)</span> rule out corner solutions: the optimum is always interior. Marshallian demand is therefore a <em>function</em>, not just a correspondence as in Perfect Substitutes. The Lagrangian works cleanly here.</p>
 </section>
 <section id="solving-the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="solving-the-problem">Solving the problem</h2>
@@ -236,9 +236,10 @@ v(p_1, p_2, m) = \alpha^{\alpha} (1 - \alpha)^{1 - \alpha} \cdot \frac{m}{p_1^{\
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The Lagrangian is <span class="math display">\[
+<p>By the Inada condition, the optimum is interior, so the boundary constraints <span class="math inline">\(x_1, x_2 \ge 0\)</span> are slack and we can apply the Lagrangian with just the budget constraint. The Lagrangian is <span class="math display">\[
 \mathcal{L}(x_1, x_2, \lambda) = x_1^{\alpha} x_2^{1 - \alpha} - \lambda \, (p_1 x_1 + p_2 x_2 - m).
-\]</span> The first-order conditions are <span class="math display">\[
+\]</span></p>
+<p>The first-order conditions are <span class="math display">\[
 \alpha \, x_1^{\alpha - 1} x_2^{1 - \alpha} = \lambda \, p_1, \qquad
 (1 - \alpha) \, x_1^{\alpha} x_2^{-\alpha} = \lambda \, p_2.
 \]</span> Dividing the first by the second eliminates <span class="math inline">\(\lambda\)</span> and gives the tangency condition <span class="math display">\[
@@ -347,7 +348,7 @@ x_2^* = \frac{(1 - \alpha) m}{p_2} = \frac{(2/3) \cdot 120}{2} = 40.
 \]</span> Expenditure: <span class="math inline">\(p_1 x_1^* = 40 = (1/3) \cdot 120\)</span> and <span class="math inline">\(p_2 x_2^* = 80 = (2/3) \cdot 120\)</span>, so shares are <span class="math inline">\(1/3\)</span> and <span class="math inline">\(2/3\)</span> as predicted by <a href="#eq-shares" class="quarto-xref">Equation&nbsp;4</a>.</p>
 <p>By <a href="#eq-indirect" class="quarto-xref">Equation&nbsp;3</a>, <span class="math display">\[
 v = (1/3)^{1/3} (2/3)^{2/3} \cdot \frac{120}{4^{1/3} \cdot 2^{2/3}}
-  = (1/3)^{1/3} (2/3)^{2/3} \cdot \frac{120}{(4 \cdot 4)^{1/3} \cdot 2^{0}}
+  = (1/3)^{1/3} (2/3)^{2/3} \cdot \frac{120}{2^{4/3}}
 \]</span> which simplifies to <span class="math inline">\(v \approx 0.5291 \cdot 47.622 \approx 25.20\)</span>.</p>
 </div>
 </div>
@@ -394,9 +395,13 @@ s_1 = \frac{p_2}{m},
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Derive the Hicksian (compensated) demand <span class="math inline">\(h_1(p_1, p_2, \bar u)\)</span> for good 1 by solving the expenditure-minimisation dual. Then state the Slutsky decomposition <span class="math display">\[
-\frac{\partial x_1^*}{\partial p_1} = \frac{\partial h_1}{\partial p_1} - x_1^* \cdot \frac{\partial x_1^*}{\partial m}
-\]</span> and verify it numerically at the baseline <span class="math inline">\((\alpha, p_1, p_2, m) = (0.4, 2, 3, 60)\)</span>.</p>
+<p>The constant elasticity of substitution (CES) utility function with parameter <span class="math inline">\(\rho \in (-\infty, 1) \setminus \{0\}\)</span> is <span class="math display">\[
+u_{\rho}(x_1, x_2) = \bigl(\alpha \, x_1^{\rho} + (1 - \alpha) \, x_2^{\rho}\bigr)^{1/\rho},
+\]</span> with elasticity of substitution <span class="math inline">\(\sigma = 1/(1 - \rho)\)</span>.</p>
+<p>Take logs of <span class="math inline">\(u_{\rho}\)</span> and show, using L’Hôpital’s rule, that as <span class="math inline">\(\rho \to 0\)</span>, <span class="math display">\[
+\log u_{\rho}(x_1, x_2) \;\longrightarrow\; \alpha \log x_1 + (1 - \alpha) \log x_2.
+\]</span></p>
+<p>Conclude that, in the <span class="math inline">\(\rho \to 0\)</span> limit (equivalently <span class="math inline">\(\sigma \to 1\)</span>), CES preferences agree with Cobb-Douglas preferences up to the monotone transformation <span class="math inline">\(\log\)</span>. This is the precise sense in which Cobb-Douglas is the knife-edge <span class="math inline">\(\sigma = 1\)</span> of the CES family flagged in the Warning above.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
@@ -411,22 +416,15 @@ s_1 = \frac{p_2}{m},
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Hicksian demand.</strong> Solve <span class="math display">\[
-\min_{x_1, x_2 &gt; 0} \; p_1 x_1 + p_2 x_2 \quad \text{s.t.} \quad x_1^{\alpha} x_2^{1 - \alpha} \ge \bar u.
-\]</span> The tangency condition is the same as in the primal, so the cost-minimising bundle satisfies <span class="math inline">\(p_2 x_2 / (p_1 x_1) = (1 - \alpha) / \alpha\)</span>, i.e., <span class="math inline">\(x_2 = \frac{(1 - \alpha) p_1}{\alpha \, p_2} \cdot x_1\)</span>. Substituting into the constraint <span class="math inline">\(x_1^{\alpha} x_2^{1 - \alpha} = \bar u\)</span> and solving: <span class="math display">\[
-h_1(p_1, p_2, \bar u) = \bar u \cdot \left( \frac{\alpha}{1 - \alpha} \cdot \frac{p_2}{p_1} \right)^{1 - \alpha}.
-\]</span></p>
-<p><strong>Slutsky terms.</strong> From <a href="#eq-demand" class="quarto-xref">Equation&nbsp;2</a>, <span class="math inline">\(\partial x_1^* / \partial p_1 = -\alpha m / p_1^2\)</span> and <span class="math inline">\(\partial x_1^* / \partial m = \alpha / p_1\)</span>. For the substitution effect, differentiate <span class="math inline">\(h_1\)</span>: <span class="math display">\[
-\frac{\partial h_1}{\partial p_1} = -(1 - \alpha) \cdot \frac{h_1}{p_1}.
-\]</span> Evaluated at the <em>Marshallian</em> bundle where <span class="math inline">\(h_1 = x_1^*\)</span> (the duality identity), this gives <span class="math inline">\(\partial h_1 / \partial p_1 = -(1 - \alpha) \alpha m / p_1^2\)</span>.</p>
-<p><strong>Verification at baseline.</strong> Here <span class="math inline">\(\alpha = 0.4\)</span>, <span class="math inline">\(p_1 = 2\)</span>, <span class="math inline">\(p_2 = 3\)</span>, <span class="math inline">\(m = 60\)</span>, <span class="math inline">\(x_1^* = 12\)</span>.</p>
-<ul>
-<li>Total effect: <span class="math inline">\(-\alpha m / p_1^2 = -0.4 \cdot 60 / 4 = -6.0\)</span>.</li>
-<li>Substitution: <span class="math inline">\(-(1 - \alpha) \alpha m / p_1^2 = -0.6 \cdot 0.4 \cdot 60 / 4 = -3.6\)</span>.</li>
-<li>Income: <span class="math inline">\(- x_1^* \cdot \alpha / p_1 = -12 \cdot 0.4 / 2 = -2.4\)</span>.</li>
-</ul>
-<p>Sum of substitution and income effects: <span class="math inline">\(-3.6 + (-2.4) = -6.0\)</span>, matching the total effect. The Slutsky decomposition holds.</p>
-<p>For Cobb-Douglas, the substitution effect is always <span class="math inline">\((1 - \alpha)\)</span> of the total and the income effect is <span class="math inline">\(\alpha\)</span> of the total — a clean closed-form decomposition that almost no other utility function delivers.</p>
+<p>Taking logs of <span class="math inline">\(u_{\rho}\)</span>: <span class="math display">\[
+\log u_{\rho}(x_1, x_2) = \frac{1}{\rho} \, \log\bigl(\alpha \, x_1^{\rho} + (1 - \alpha) \, x_2^{\rho}\bigr).
+\]</span> As <span class="math inline">\(\rho \to 0\)</span>, both numerator and denominator (of <span class="math inline">\(\log(\cdot) / \rho\)</span>) tend to <span class="math inline">\(0\)</span> — the numerator because <span class="math inline">\(\alpha + (1 - \alpha) = 1\)</span> and <span class="math inline">\(\log 1 = 0\)</span>. Apply L’Hôpital’s rule, differentiating in <span class="math inline">\(\rho\)</span>: <span class="math display">\[
+\frac{d}{d\rho} \log\bigl(\alpha x_1^{\rho} + (1 - \alpha) x_2^{\rho}\bigr)
+= \frac{\alpha x_1^{\rho} \log x_1 + (1 - \alpha) x_2^{\rho} \log x_2}{\alpha x_1^{\rho} + (1 - \alpha) x_2^{\rho}},
+\]</span> which as <span class="math inline">\(\rho \to 0\)</span> converges to <span class="math display">\[
+\frac{\alpha \log x_1 + (1 - \alpha) \log x_2}{\alpha + (1 - \alpha)} = \alpha \log x_1 + (1 - \alpha) \log x_2.
+\]</span> Hence <span class="math inline">\(\log u_{\rho} \to \alpha \log x_1 + (1 - \alpha) \log x_2 = \log\bigl(x_1^{\alpha} x_2^{1 - \alpha}\bigr)\)</span>, which is a monotone transformation of Cobb-Douglas utility. Since preferences are invariant to monotone transformations of utility, the limiting preferences <em>are</em> Cobb-Douglas.</p>
+<p>The CES family interpolates between Leontief (perfect complements, <span class="math inline">\(\sigma \to 0\)</span>, <span class="math inline">\(\rho \to -\infty\)</span>), Cobb-Douglas (<span class="math inline">\(\sigma = 1\)</span>, <span class="math inline">\(\rho \to 0\)</span>), and Perfect Substitutes (<span class="math inline">\(\sigma \to \infty\)</span>, <span class="math inline">\(\rho = 1\)</span>). Cobb-Douglas sits at the centre. The constancy of expenditure shares fails on either side of <span class="math inline">\(\sigma = 1\)</span>.</p>
 </div>
 </div>
 </div>

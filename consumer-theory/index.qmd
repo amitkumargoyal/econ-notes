@@ -2,10 +2,14 @@
 title: "Consumer Theory"
 ---
 
-This section develops standard consumer theory from utility maximisation, with full derivations of demand functions and comparative statics.
+This section develops standard consumer theory in two pieces: per-utility-family modules covering utility maximisation, and a separate Duality module collecting expenditure minimisation, Hicksian demand, and Slutsky decomposition uniformly across families.
 
-## Topics
+## Utility maximisation (per utility family)
 
 - [Perfect Substitutes](perfect-substitutes.qmd)
 - [Cobb–Douglas](cobb-douglas.qmd)
 - *Perfect Complements* (coming soon)
+
+## Duality (cross-family)
+
+- *Expenditure minimisation, Hicksian demand, Slutsky decomposition* (coming soon)

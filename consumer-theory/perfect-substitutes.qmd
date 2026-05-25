@@ -29,40 +29,48 @@ $$
 \frac{a}{p_1} \;\; \text{vs.} \;\; \frac{b}{p_2}.
 $$
 
+::: {.callout-note title="Notation: bundles versus sets of bundles"}
+Throughout these notes, $(x_1^*, x_2^*) \in \mathbb{R}^2_+$ denotes a *single* optimal bundle, while $X^*(p_1, p_2, m) \subseteq \mathbb{R}^2_+$ denotes the *set* of all optimal bundles at the prices and income $(p_1, p_2, m)$. The relationship between the two is membership: $(x_1^*, x_2^*) \in X^*(p_1, p_2, m)$.
+
+When $X^*(p_1, p_2, m)$ is a singleton, demand is a *function* and the distinction is cosmetic — we often just write $(x_1^*, x_2^*) = (x_1^*(p_1, p_2, m), x_2^*(p_1, p_2, m))$. When $X^*$ contains more than one bundle — as on the knife-edge below — demand is a *correspondence* and the distinction matters: there is no single $(x_1^*, x_2^*)$ to write down, only the set $X^*$.
+:::
+
 ::: {.callout-important title="Proposition: Demand correspondence"}
 The demand correspondence for the perfect-substitutes problem is
 $$
-(x_1^*, x_2^*) =
+(x_1^*, x_2^*) \in X^*(p_1,p_2,m)=
 \begin{cases}
-\bigl(\dfrac{m}{p_1},\; 0\bigr) & \text{if } \dfrac{a}{p_1} > \dfrac{b}{p_2}, \\[1em]
-\bigl(0,\; \dfrac{m}{p_2}\bigr) & \text{if } \dfrac{a}{p_1} < \dfrac{b}{p_2}, \\[1em]
+\bigl\{\bigl(\dfrac{m}{p_1},\; 0\bigr)\bigr\} & \text{if } \dfrac{a}{p_1} > \dfrac{b}{p_2}, \\[1em]
+\bigl\{\bigl(0,\; \dfrac{m}{p_2}\bigr)\bigr\} & \text{if } \dfrac{a}{p_1} < \dfrac{b}{p_2}, \\[1em]
 \bigl\{(x_1, x_2) : p_1 x_1 + p_2 x_2 = m,\; x_1, x_2 \ge 0\bigr\} & \text{if } \dfrac{a}{p_1} = \dfrac{b}{p_2}.
 \end{cases}
 $$ {#eq-demand}
 :::
 
 ::: {.callout-tip title="Proof sketch" collapse="true"}
-Rewrite utility along the budget line. Substituting $x_2 = (m - p_1 x_1)/p_2$ into $u$ gives
+Rewrite utility along the budget line. Substituting $x_2 = (m - p_1 x_1)/p_2$ into $u$ gives the *restricted utility*
 $$
-u(x_1) = a x_1 + \frac{b}{p_2}(m - p_1 x_1) = \frac{b m}{p_2} + \left(a - \frac{b p_1}{p_2}\right) x_1.
+\tilde u(x_1) := u\bigl(x_1,\, (m - p_1 x_1)/p_2\bigr) = a x_1 + \frac{b}{p_2}(m - p_1 x_1) = \frac{b m}{p_2} + \left(a - \frac{b p_1}{p_2}\right) x_1.
 $$
+
 This is linear in $x_1$. The coefficient on $x_1$ is positive iff $a/p_1 > b/p_2$, in which case the consumer pushes $x_1$ to its maximum $m/p_1$. The coefficient is negative iff $a/p_1 < b/p_2$, in which case $x_1 = 0$. When the coefficient is zero, every feasible bundle on the budget line is optimal.
 :::
 
-Note that demand is single-valued except on the knife-edge $a/p_1 = b/p_2$, where it is a *correspondence* — the entire budget line is optimal.
+Note that the set of demands is singleton except on the knife-edge $a/p_1 = b/p_2$, where the entire budget line is optimal.
 
 ## Comparative statics
 
 Equation @eq-demand makes the comparative statics immediate.
 
-**Own-price effects.** Holding $(p_2, m, a, b)$ fixed, raising $p_1$ from a low value to a high one switches the consumer from corner $(m/p_1, 0)$ to corner $(0, m/p_2)$ as $p_1$ crosses the threshold $p_1^* = a p_2 / b$. Demand for good 1 falls *discontinuously* from $m / p_1^*$ to $0$.
+**Own-price effects.** Holding $(p_2, m, a, b)$ fixed, the unique optimum is at $(m/p_1, 0)$ for $p_1 < \overline{p_1}$ and at $(0, m/p_2)$ for $p_1 > \overline{p_1}$, where $\overline{p_1} = a p_2 / b$. At $p_1 = \overline{p_1}$ exactly, the whole budget line is optimal (see the Kink callout).
 
-**Cross-price effects.** Symmetrically, raising $p_2$ holding $p_1$ fixed shifts the consumer from corner $(0, m/p_2)$ to corner $(m/p_1, 0)$ at $p_2^* = b p_1 / a$.
+**Cross-price effects.** Symmetrically, the unique optimum is at $(0, m/p_2)$ for $p_2 < \overline{p_2}$ and at $(m/p_1,0)$ for $p_2 > \overline{p_2}$, where $\overline{p_2} = b p_1 / a$. At $p_2 = \overline{p_2}$ exactly, the whole budget line is optimal.
 
 **Income effects.** Whichever corner is optimal, income expansion is linear: doubling $m$ doubles the optimal quantity of the chosen good. Income elasticity is $1$. Both goods are normal in the (weak) sense that demand never falls with income.
 
+
 ::: {.callout-warning title="The kink matters"}
-The discontinuity at $p_1 = a p_2 / b$ is not a pathology — it is the defining feature of perfect substitutes. A standard Walrasian framework requires demand to be a *correspondence* rather than a function precisely to accommodate this case.
+The jump in $X^*$ at $p_1 = a p_2 / b$ is not a pathology — it is the defining feature of perfect substitutes. On either side of the threshold, $X^*$ is single-valued; *at* the threshold, $X^*$ is the entire budget line. A standard Walrasian framework requires demand to be a *correspondence* rather than a function to accommodate cases like these.
 :::
 
 ## Worked example
@@ -75,19 +83,20 @@ $$
 $$
 so the consumer specialises in good 1 whenever $p_1 < 2$ and in good 2 whenever $p_1 > 2$.
 
-- At $p_1 = 1$: $x_1^* = 100$, $x_2^* = 0$, utility $= 200$.
-- At $p_1 = 2$: any bundle on the line $2 x_1 + x_2 = 100$ is optimal; utility $= 100$ regardless.
-- At $p_1 = 4$: $x_1^* = 0$, $x_2^* = 100$, utility $= 100$.
+- At $p_1 = 1$: $X^*(1, 1, 100) = \{(100, 0)\}$, utility $= 200$.
+- At $p_1 = 2$: $X^*(2, 1, 100) = \{(x_1, x_2) : 2 x_1 + x_2 = 100,\; x_1, x_2 \ge 0\}$, utility $= 100$ on the entire set.
+- At $p_1 = 4$: $X^*(4, 1, 100) = \{(0, 100)\}$, utility $= 100$.
 
-The demand for good 1 as a function of $p_1$ is
+The set of optimal good-1 consumptions as $p_1$ varies is
 $$
-x_1^*(p_1) =
+X_1^*(p_1) =
 \begin{cases}
-100 / p_1 & \text{if } p_1 < 2, \\
-\text{any value in } [0,\; 50] & \text{if } p_1 = 2, \\
-0 & \text{if } p_1 > 2.
+\{100 / p_1\} & \text{if } p_1 < 2, \\
+[0,\; 50] & \text{if } p_1 = 2, \\
+\{0\} & \text{if } p_1 > 2,
 \end{cases}
 $$
+where $X_1^*(p_1) := \{x_1 : (x_1, x_2) \in X^*(p_1, 1, 100) \text{ for some } x_2\}$ is the projection of the demand correspondence onto the first coordinate.
 
 A figure illustrating the three regimes is in @sec-figure.
 
@@ -130,8 +139,8 @@ class Params:
         return self.m / self.p2
 
     @property
-    def optimum(self) -> tuple[float, float] | None:
-        """Corner optimum, or None on the knife-edge."""
+    def unique_optimum(self) -> tuple[float, float] | None:
+        """The unique optimum, or None when X* is set-valued (knife-edge)."""
         mu_per_rupee_1 = self.a / self.p1
         mu_per_rupee_2 = self.b / self.p2
         if mu_per_rupee_1 > mu_per_rupee_2:
@@ -146,7 +155,13 @@ def plot_panel(ax: plt.Axes, p: Params, title: str) -> None:
 
     # Indifference curves (straight lines, slope -a/b) at three utility levels
     x1 = np.linspace(0, x_max, 200)
-    u_star = p.a * p.x1_intercept if p.optimum != (0.0, p.x2_intercept) else p.b * p.x2_intercept
+    # u_star is the utility at the optimum. On the knife-edge both
+    # expressions agree; off the knife-edge, pick the one that hits the
+    # corner the consumer specialises in.
+    if p.unique_optimum is None or p.unique_optimum[1] == 0.0:
+        u_star = p.a * p.x1_intercept
+    else:
+        u_star = p.b * p.x2_intercept
     for u_level in [0.5 * u_star, u_star, 1.3 * u_star]:
         x2 = (u_level - p.a * x1) / p.b
         ax.plot(x1, x2, color=TERRACOTTA, linewidth=0.8, alpha=0.6)
@@ -156,11 +171,11 @@ def plot_panel(ax: plt.Axes, p: Params, title: str) -> None:
             color=VIOLET, linewidth=1.6, label="Budget line")
 
     # Optimum: dot at corner, or thick line if knife-edge
-    if p.optimum is None:
+    if p.unique_optimum is None:
         ax.plot([0, p.x1_intercept], [p.x2_intercept, 0],
                 color=VIOLET, linewidth=3.5, alpha=0.9)
     else:
-        ax.plot(*p.optimum, "o", color=VIOLET, markersize=9, zorder=5)
+        ax.plot(*p.unique_optimum, "o", color=VIOLET, markersize=9, zorder=5)
 
     ax.set_xlim(0, x_max)
     ax.set_ylim(0, x_max)
@@ -224,7 +239,7 @@ Sketch the price-offer curve in $(x_1, x_2)$-space as $p_1$ varies from $0$ to $
 :::
 
 ::: {.callout-tip title="Solution" collapse="true"}
-As $p_1 \downarrow 0$, $x_1^* = m/p_1 \to \infty$ and $x_2^* = 0$, so the curve runs out along the $x_1$-axis. As $p_1$ crosses $p_1^* = ap_2/b = 2$, the consumer jumps from $(50, 0)$ to $(0, 100)$, and at exactly $p_1 = 2$ the *entire* budget line is optimal. For $p_1 > 2$ the consumer stays at $(0, 100)$. The price-offer curve is therefore the $x_1$-axis segment from $(50, 0)$ outward to $\infty$, plus the budget line at $p_1 = 2$ from $(50, 0)$ to $(0, 100)$, plus the single point $(0, 100)$. It does not pass through the strict interior of any budget set.
+As $p_1 \downarrow 0$, $X^*(p_1, 1, 100) = \{(m/p_1, 0)\}$ with $m/p_1 \to \infty$, so the curve runs out along the $x_1$-axis. As $p_1$ crosses $\overline{p_1} = ap_2/b = 2$, the consumer jumps from $(50, 0)$ to $(0, 100)$, and at exactly $p_1 = 2$ the *entire* budget line is optimal. For $p_1 > 2$ the consumer stays at $(0, 100)$. The price-offer curve is therefore the $x_1$-axis segment from $(50, 0)$ outward to $\infty$, plus the budget line at $p_1 = 2$ from $(50, 0)$ to $(0, 100)$, plus the single point $(0, 100)$. It does not pass through the strict interior of any budget set.
 :::
 
 ## References

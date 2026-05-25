@@ -24,6 +24,19 @@ title: "<TODO: Module title, e.g. 'Cobb-Douglas'>"
     Equations:   $$ ... $$ {#eq-<slug>}     referenced as @eq-<slug>
     Sections:    ## Heading {#sec-<slug>}   referenced as @sec-<slug>
     Figures:     #| label: fig-<slug>       referenced as @fig-<slug>
+    
+  NOTATION CONVENTION (section-wide):
+    - $(x_1^*, x_2^*) \in \mathbb{R}^2_+$ denotes a SINGLE optimal bundle.
+    - $X^*(p_1, p_2, m) \subseteq \mathbb{R}^2_+$ denotes the SET of
+      optimal bundles. The relationship is membership.
+    - When demand is single-valued (a function), the distinction is
+      cosmetic and writing $(x_1^*, x_2^*)$ is fine.
+    - When demand is set-valued (a correspondence), use $X^*$ and write
+      $(x_1^*, x_2^*) \in X^*(\ldots)$.
+    - Introduced in perfect-substitutes.qmd's Notation callout. Add a
+      similar callout in this module ONLY if a correspondence vs
+      function distinction arises here. Otherwise, just use the
+      convention silently and forward-reference if necessary.
 
   CALLOUT PATTERNS:
     Definition       ::: {.callout-note title="Definition: ..."}
@@ -42,6 +55,11 @@ title: "<TODO: Module title, e.g. 'Cobb-Douglas'>"
       - The callout types for Definition / Proposition / Proof sketch /
         Warning / Exercise / Solution. The visual language is part of
         the brand.
+      - UMP only. Expenditure minimisation, Hicksian demand, Slutsky
+        decomposition, Shephard's lemma — these belong in the separate
+        duality.qmd module (forthcoming), with per-family worked examples
+        collected there in a table. Do not duplicate duality content
+        across utility-family modules.
     Advisory (deviate when the math wants it):
       - Number of exercises. Three is the default; two suffices for a
         short module, four is fine when the material warrants it.
@@ -217,9 +235,15 @@ explicitly by working an example where the warned-against property fails.>
 :::
 
 ::: {.callout-note title="Exercise 3" appearance="simple"}
-<TODO: Extension. Push into duality, indirect utility, expenditure functions,
-or comparative-statics objects (Slutsky decomposition, elasticities, offer
-curves) that build on the headline result rather than re-using it.>
+<TODO: Extension. Push into adjacent territory that connects this module
+to others: comparative statics in preference parameters, limiting cases
+that connect to neighbouring utility families, indirect utility
+properties, offer-curve geometry, elasticity decompositions specific to
+this family.
+
+Do NOT use E3 for duality content (Hicksian demand, Slutsky decomposition,
+Shephard's lemma, expenditure functions). That belongs in duality.qmd —
+see the Firm rules above.>
 :::
 
 ::: {.callout-tip title="Solution" collapse="true"}

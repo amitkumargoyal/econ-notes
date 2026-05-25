@@ -2,7 +2,7 @@
 title: "Cobb-Douglas"
 ---
 
-A consumer chooses a bundle $(x_1, x_2) \in \mathbb{R}^2_{++}$ of two goods to maximise utility subject to a budget constraint. **Cobb-Douglas preferences** are the workhorse interior-solution case: smooth indifference curves, a unique tangency, and demands that are linear in income and unit-elastic in own price. The defining oddity — and the pedagogical payoff of this module — is that the *expenditure share* on each good is constant across all prices and incomes. This module derives Marshallian demand, traces the comparative statics, and works through one numerical example.
+A consumer chooses a bundle $(x_1, x_2) \in \mathbb{R}^2_{+}$ of two goods to maximise utility subject to a budget constraint. **Cobb-Douglas preferences** are the workhorse interior-solution case: smooth indifference curves, a unique tangency, and demands that are linear in income and unit-elastic in own price. The defining oddity — and the pedagogical payoff of this module — is that the *expenditure share* on each good is constant across all prices and incomes. This module derives Marshallian demand, traces the comparative statics, and works through one numerical example.
 
 ## The model
 
@@ -16,11 +16,11 @@ The marginal rate of substitution is $\mathrm{MRS} = \dfrac{\alpha}{1 - \alpha} 
 
 The consumer's problem is
 $$
-\max_{x_1, x_2 > 0} \; x_1^{\alpha} x_2^{1 - \alpha} \quad \text{s.t.} \quad p_1 x_1 + p_2 x_2 \le m,
+\max_{(x_1, x_2) \in \mathbb{R}^2_{+}} \; x_1^{\alpha} x_2^{1 - \alpha} \quad \text{s.t.} \quad p_1 x_1 + p_2 x_2 \le m,
 $$ {#eq-problem}
 with $p_1, p_2 > 0$ and $m > 0$.
 
-Unlike the perfect-substitutes case, the objective is strictly quasi-concave and the indifference curves are strictly convex, so the solution is unique and interior (no corner solutions, no demand correspondences). The Lagrangian works cleanly here.
+Unlike the perfect-substitutes case, the indifference curves are strictly convex, so any optimum is unique. The Inada conditions $\lim_{x_i \to 0} \partial u / \partial x_i = \infty$ rule out corner solutions: the optimum is always interior. Marshallian demand is therefore a *function*, not just a correspondence as in Perfect Substitutes. The Lagrangian works cleanly here.
 
 ## Solving the problem
 
@@ -39,10 +39,11 @@ $$ {#eq-indirect}
 :::
 
 ::: {.callout-tip title="Proof sketch" collapse="true"}
-The Lagrangian is
+By the Inada condition, the optimum is interior, so the boundary constraints $x_1, x_2 \ge 0$ are slack and we can apply the Lagrangian with just the budget constraint. The Lagrangian is
 $$
 \mathcal{L}(x_1, x_2, \lambda) = x_1^{\alpha} x_2^{1 - \alpha} - \lambda \, (p_1 x_1 + p_2 x_2 - m).
 $$
+
 The first-order conditions are
 $$
 \alpha \, x_1^{\alpha - 1} x_2^{1 - \alpha} = \lambda \, p_1, \qquad
@@ -256,7 +257,7 @@ Expenditure: $p_1 x_1^* = 40 = (1/3) \cdot 120$ and $p_2 x_2^* = 80 = (2/3) \cdo
 By @eq-indirect,
 $$
 v = (1/3)^{1/3} (2/3)^{2/3} \cdot \frac{120}{4^{1/3} \cdot 2^{2/3}}
-  = (1/3)^{1/3} (2/3)^{2/3} \cdot \frac{120}{(4 \cdot 4)^{1/3} \cdot 2^{0}}
+  = (1/3)^{1/3} (2/3)^{2/3} \cdot \frac{120}{2^{4/3}}
 $$
 which simplifies to $v \approx 0.5291 \cdot 47.622 \approx 25.20$.
 :::
@@ -276,38 +277,37 @@ which falls as income rises (good 1 is a necessity in the quasi-linear sense) an
 :::
 
 ::: {.callout-note title="Exercise 3" appearance="simple"}
-Derive the Hicksian (compensated) demand $h_1(p_1, p_2, \bar u)$ for good 1 by solving the expenditure-minimisation dual. Then state the Slutsky decomposition
+The constant elasticity of substitution (CES) utility function with parameter $\rho \in (-\infty, 1) \setminus \{0\}$ is
 $$
-\frac{\partial x_1^*}{\partial p_1} = \frac{\partial h_1}{\partial p_1} - x_1^* \cdot \frac{\partial x_1^*}{\partial m}
+u_{\rho}(x_1, x_2) = \bigl(\alpha \, x_1^{\rho} + (1 - \alpha) \, x_2^{\rho}\bigr)^{1/\rho},
 $$
-and verify it numerically at the baseline $(\alpha, p_1, p_2, m) = (0.4, 2, 3, 60)$.
+with elasticity of substitution $\sigma = 1/(1 - \rho)$.
+
+Take logs of $u_{\rho}$ and show, using L'Hôpital's rule, that as $\rho \to 0$,
+$$
+\log u_{\rho}(x_1, x_2) \;\longrightarrow\; \alpha \log x_1 + (1 - \alpha) \log x_2.
+$$
+
+Conclude that, in the $\rho \to 0$ limit (equivalently $\sigma \to 1$), CES preferences agree with Cobb-Douglas preferences up to the monotone transformation $\log$. This is the precise sense in which Cobb-Douglas is the knife-edge $\sigma = 1$ of the CES family flagged in the Warning above.
 :::
 
 ::: {.callout-tip title="Solution" collapse="true"}
-**Hicksian demand.** Solve
+Taking logs of $u_{\rho}$:
 $$
-\min_{x_1, x_2 > 0} \; p_1 x_1 + p_2 x_2 \quad \text{s.t.} \quad x_1^{\alpha} x_2^{1 - \alpha} \ge \bar u.
+\log u_{\rho}(x_1, x_2) = \frac{1}{\rho} \, \log\bigl(\alpha \, x_1^{\rho} + (1 - \alpha) \, x_2^{\rho}\bigr).
 $$
-The tangency condition is the same as in the primal, so the cost-minimising bundle satisfies $p_2 x_2 / (p_1 x_1) = (1 - \alpha) / \alpha$, i.e., $x_2 = \frac{(1 - \alpha) p_1}{\alpha \, p_2} \cdot x_1$. Substituting into the constraint $x_1^{\alpha} x_2^{1 - \alpha} = \bar u$ and solving:
+As $\rho \to 0$, both numerator and denominator (of $\log(\cdot) / \rho$) tend to $0$ — the numerator because $\alpha + (1 - \alpha) = 1$ and $\log 1 = 0$. Apply L'Hôpital's rule, differentiating in $\rho$:
 $$
-h_1(p_1, p_2, \bar u) = \bar u \cdot \left( \frac{\alpha}{1 - \alpha} \cdot \frac{p_2}{p_1} \right)^{1 - \alpha}.
+\frac{d}{d\rho} \log\bigl(\alpha x_1^{\rho} + (1 - \alpha) x_2^{\rho}\bigr)
+= \frac{\alpha x_1^{\rho} \log x_1 + (1 - \alpha) x_2^{\rho} \log x_2}{\alpha x_1^{\rho} + (1 - \alpha) x_2^{\rho}},
 $$
+which as $\rho \to 0$ converges to
+$$
+\frac{\alpha \log x_1 + (1 - \alpha) \log x_2}{\alpha + (1 - \alpha)} = \alpha \log x_1 + (1 - \alpha) \log x_2.
+$$
+Hence $\log u_{\rho} \to \alpha \log x_1 + (1 - \alpha) \log x_2 = \log\bigl(x_1^{\alpha} x_2^{1 - \alpha}\bigr)$, which is a monotone transformation of Cobb-Douglas utility. Since preferences are invariant to monotone transformations of utility, the limiting preferences *are* Cobb-Douglas.
 
-**Slutsky terms.** From @eq-demand, $\partial x_1^* / \partial p_1 = -\alpha m / p_1^2$ and $\partial x_1^* / \partial m = \alpha / p_1$. For the substitution effect, differentiate $h_1$:
-$$
-\frac{\partial h_1}{\partial p_1} = -(1 - \alpha) \cdot \frac{h_1}{p_1}.
-$$
-Evaluated at the *Marshallian* bundle where $h_1 = x_1^*$ (the duality identity), this gives $\partial h_1 / \partial p_1 = -(1 - \alpha) \alpha m / p_1^2$.
-
-**Verification at baseline.** Here $\alpha = 0.4$, $p_1 = 2$, $p_2 = 3$, $m = 60$, $x_1^* = 12$.
-
-- Total effect: $-\alpha m / p_1^2 = -0.4 \cdot 60 / 4 = -6.0$.
-- Substitution: $-(1 - \alpha) \alpha m / p_1^2 = -0.6 \cdot 0.4 \cdot 60 / 4 = -3.6$.
-- Income: $- x_1^* \cdot \alpha / p_1 = -12 \cdot 0.4 / 2 = -2.4$.
-
-Sum of substitution and income effects: $-3.6 + (-2.4) = -6.0$, matching the total effect. The Slutsky decomposition holds.
-
-For Cobb-Douglas, the substitution effect is always $(1 - \alpha)$ of the total and the income effect is $\alpha$ of the total — a clean closed-form decomposition that almost no other utility function delivers.
+The CES family interpolates between Leontief (perfect complements, $\sigma \to 0$, $\rho \to -\infty$), Cobb-Douglas ($\sigma = 1$, $\rho \to 0$), and Perfect Substitutes ($\sigma \to \infty$, $\rho = 1$). Cobb-Douglas sits at the centre. The constancy of expenditure shares fails on either side of $\sigma = 1$.
 :::
 
 ## References

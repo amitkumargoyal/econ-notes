@@ -263,7 +263,7 @@ which simplifies to $v \approx 0.5291 \cdot 47.622 \approx 25.20$.
 :::
 
 ::: {.callout-note title="Exercise 2" appearance="simple"}
-Prove that the expenditure share on good 1 is $\alpha$ for *all* $(p_1, p_2, m) \in \mathbb{R}^3_{++}$. Then show that this property fails for quasi-linear preferences $u(x_1, x_2) = \log x_1 + x_2$: derive the demand for good 1 and the expenditure share, and explain why the share moves with $(p_1, m)$.
+Prove that the expenditure share on good 1 is $\alpha$ for *all* $(p_1, p_2, m) \in \mathbb{R}^3_{++}$. Then show that this property fails for quasi-linear preferences $u(x_1, x_2) = \log x_1 + x_2$: derive the demand for good 1 and the expenditure share, and explain why the share moves with $(p_2, m)$.
 :::
 
 ::: {.callout-tip title="Solution" collapse="true"}

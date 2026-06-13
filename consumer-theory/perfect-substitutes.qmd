@@ -32,7 +32,7 @@ $$
 ::: {.callout-note title="Notation: bundles versus sets of bundles"}
 Throughout these notes, $(x_1^*, x_2^*) \in \mathbb{R}^2_+$ denotes a *single* optimal bundle, while $X^*(p_1, p_2, m) \subseteq \mathbb{R}^2_+$ denotes the *set* of all optimal bundles at the prices and income $(p_1, p_2, m)$. The relationship between the two is membership: $(x_1^*, x_2^*) \in X^*(p_1, p_2, m)$.
 
-When $X^*(p_1, p_2, m)$ is a singleton, demand is a *function* and the distinction is cosmetic — we often just write $(x_1^*, x_2^*) = (x_1^*(p_1, p_2, m), x_2^*(p_1, p_2, m))$. When $X^*$ contains more than one bundle — as on the knife-edge below — demand is a *correspondence* and the distinction matters: there is no single $(x_1^*, x_2^*)$ to write down, only the set $X^*$.
+When $X^*(p_1, p_2, m)$ is a singleton for all $(p_1 ,p_2 , m)$, demand is a *function* and the distinction is cosmetic — we often just write $(x_1^*, x_2^*) = (x_1^*(p_1, p_2, m), x_2^*(p_1, p_2, m))$. When $X^*$ contains more than one bundle — as on the knife-edge below — demand is a *correspondence* and the distinction matters: there is no single $(x_1^*, x_2^*)$ to write down, only the set $X^*$.
 :::
 
 ::: {.callout-important title="Proposition: Demand correspondence"}
@@ -62,15 +62,15 @@ Note that the set of demands is singleton except on the knife-edge $a/p_1 = b/p_
 
 Equation @eq-demand makes the comparative statics immediate.
 
-**Own-price effects.** Holding $(p_2, m, a, b)$ fixed, the unique optimum is at $(m/p_1, 0)$ for $p_1 < \overline{p_1}$ and at $(0, m/p_2)$ for $p_1 > \overline{p_1}$, where $\overline{p_1} = a p_2 / b$. At $p_1 = \overline{p_1}$ exactly, the whole budget line is optimal (see the Kink callout).
+**Own-price effects.** Holding $(p_2, m, a, b)$ fixed, the unique optimum is at $(m/p_1, 0)$ for $p_1 < \overline{p_1}$ and at $(0, m/p_2)$ for $p_1 > \overline{p_1}$, where $\overline{p_1} = a p_2 / b$. At $p_1 = \overline{p_1}$ exactly, the whole budget line is optimal.
 
 **Cross-price effects.** Symmetrically, the unique optimum is at $(0, m/p_2)$ for $p_2 < \overline{p_2}$ and at $(m/p_1,0)$ for $p_2 > \overline{p_2}$, where $\overline{p_2} = b p_1 / a$. At $p_2 = \overline{p_2}$ exactly, the whole budget line is optimal.
 
 **Income effects.** Whichever corner is optimal, income expansion is linear: doubling $m$ doubles the optimal quantity of the chosen good. Income elasticity is $1$. Both goods are normal in the (weak) sense that demand never falls with income.
 
 
-::: {.callout-warning title="The kink matters"}
-The jump in $X^*$ at $p_1 = a p_2 / b$ is not a pathology — it is the defining feature of perfect substitutes. On either side of the threshold, $X^*$ is single-valued; *at* the threshold, $X^*$ is the entire budget line. A standard Walrasian framework requires demand to be a *correspondence* rather than a function to accommodate cases like these.
+::: {.callout-warning title="A knife-edge property"}
+The jump in $X^*$ at $p_1 = a p_2 / b$ is the defining feature of perfect substitutes. On either side of the threshold, $X^*$ is single-valued; *at* the threshold, $X^*$ is the entire budget line. A standard Walrasian framework requires demand to be a *correspondence* rather than a function to accommodate cases like these.
 :::
 
 ## Worked example

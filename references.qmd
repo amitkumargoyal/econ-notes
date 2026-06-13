@@ -12,4 +12,4 @@ These notes draw throughout on the following textbooks. Specific section pointer
 
 ## Use
 
-These notes are not a substitute for the books. They are a *companion* — full derivations of the standard results, in a consistent notation, designed to be read alongside the books or after a first pass through them. Where a particular module follows a specific exposition closely, that will be noted in the module itself.
+These notes are not a substitute for the books. They are a *companion* — derivations of the standard results, in a consistent notation, designed to be read alongside the books. Where a particular module follows a specific exposition closely, that will be noted in the module itself.

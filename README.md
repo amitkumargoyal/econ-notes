@@ -1,12 +1,12 @@
 # econ-notes
 
-Microeconomics teaching notes — full derivations, exercises, and reproducible figures. A companion to the [Econschool](https://econschool.in) videos and the [@econ.school](https://www.youtube.com/@econ.school) YouTube channel.
+Microeconomics teaching notes — derivations, exercises, and reproducible figures. A companion to the [Econschool](https://econschool.in) videos and the [@econ.school](https://www.youtube.com/@econ.school) YouTube channel.
 
 **Read the notes:** <https://amitkumargoyal.github.io/econ-notes/>
 
 ## Audience
 
-Students preparing for postgraduate study in economics (DSE, ISI, and international MA/PhD programmes). The emphasis is on full mathematical working.
+Students preparing for postgraduate study in economics (ISI, and international MA/PhD programmes). 
 
 ## Build
 

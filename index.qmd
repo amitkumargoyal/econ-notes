@@ -2,7 +2,7 @@
 title: "Econ Notes"
 ---
 
-A companion site to the [Econschool](https://econschool.in) videos — full derivations, exercises, and reproducible figures for microeconomics.
+A companion site to the [Econschool](https://econschool.in) videos — derivations, exercises, and reproducible figures for microeconomics.
 
 ## Modules
 
@@ -10,6 +10,6 @@ A companion site to the [Econschool](https://econschool.in) videos — full deri
 
 ## About
 
-These notes are written for students preparing for postgraduate study in economics. The emphasis is on full mathematical working — no skipped algebra, no hand-waved geometry. Figures are generated from code so they can be reproduced and adapted.
+These notes are written for students preparing for postgraduate study in economics. The emphasis is on mathematical working. Figures are generated from code so they can be reproduced and adapted.
 
 Author: [Amit Goyal](https://econschool.in) · <amit@econschool.in>
